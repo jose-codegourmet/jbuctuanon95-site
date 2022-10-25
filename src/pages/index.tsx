@@ -1,5 +1,5 @@
-import Head from "next/head";
-import Image from "next/image";
+import Head from 'next/head';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -14,23 +14,18 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
         <p className="text-center my-16 text-2xl">
-          Get started by editing{" "}
-          <code className="bg-gray-100 rounded-2xl p-3 text-base">
-            pages/index.js
-          </code>
+          Get started by editing <code className="bg-gray-100 rounded-2xl p-3 text-base">pages/index.js</code>
         </p>
         {/* margin: 1rem; padding: 1.5rem; text-align: left; color: inherit;
         text-decoration: none; border: 1px solid #eaeaea; border-radius: 10px;
         transition: color 0.15s ease, border-color 0.15s ease; max-width: 300px; */}
-        <div className="flex items-center justify-center flex-wrap max-w-3xl md:flex-unset">
+        <div className="md:flex-unset flex items-center justify-center flex-wrap max-w-3xl">
           <a
             href="https://nextjs.org/docs"
             className="p-6 m-4 text-left no-underline border rounded-md transition-colors ease-in-out duration-700 max-w-xs hover:text-indigo-500 hover:border-indigo-500 min-h-[200px]"
           >
             <h2 className="text-2xl mb-8">Documentation &rarr;</h2>
-            <p className="m-0 text-xl">
-              Find in-depth information about Next.js features and API.
-            </p>
+            <p className="m-0 text-xl">Find in-depth information about Next.js features and API.</p>
           </a>
 
           <a
@@ -38,9 +33,7 @@ export default function Home() {
             className="p-6 m-4 text-left no-underline border rounded-md transition-colors ease-in-out duration-700 max-w-xs hover:text-indigo-500 hover:border-indigo-500 min-h-[200px]"
           >
             <h2 className="text-2xl mb-8">Learn &rarr;</h2>
-            <p className="m-0 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
+            <p className="m-0 text-xl">Learn about Next.js in an interactive course with quizzes!</p>
           </a>
 
           <a
@@ -48,9 +41,7 @@ export default function Home() {
             className="p-6 m-4 text-left no-underline border rounded-md transition-colors ease-in-out duration-700 max-w-xs hover:text-indigo-500 hover:border-indigo-500 min-h-[200px]"
           >
             <h2 className="text-2xl mb-8">Examples &rarr;</h2>
-            <p className="m-0 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
+            <p className="m-0 text-xl">Discover and deploy boilerplate example Next.js projects.</p>
           </a>
 
           <a
@@ -58,9 +49,7 @@ export default function Home() {
             className="p-6 m-4 text-left no-underline border rounded-md transition-colors ease-in-out duration-700 max-w-xs hover:text-indigo-500 hover:border-indigo-500 min-h-[200px]"
           >
             <h2 className="text-2xl mb-8">Deploy &rarr;</h2>
-            <p className="m-0 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+            <p className="m-0 text-xl">Instantly deploy your Next.js site to a public URL with Vercel.</p>
           </a>
         </div>
       </main>
@@ -71,15 +60,9 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{" "}
+          Powered by{' '}
           <span className="h-5 ml-2">
-            <Image
-              className="ml-2"
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              width={72}
-              height={16}
-            />
+            <Image className="ml-2" src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
