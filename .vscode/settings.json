@@ -10,6 +10,5 @@
   },
   "[sass]": {
     "editor.tabSize": 4
-  },
-  "eslint.workingDirectories": ["./src"]
+  }
 }

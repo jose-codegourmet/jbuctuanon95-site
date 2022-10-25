@@ -5,17 +5,17 @@ import React from 'react';
 import type { FC } from 'react';
 import LogoOnBlack from 'src/images/logo_on_black_bg.svg';
 import LogoOnWhite from 'src/images/logo_on_white_bg.svg';
+import type { ProjectStateTypes } from 'src/types/project';
 
-export interface FooterProps extends Omit<ImageProps, 'src'> {
-  isDarkBg?: boolean;
+export interface FooterProps extends ProjectStateTypes, Omit<ImageProps, 'src'> {
   logoAlt?: string;
 }
 
 const ProjectLogo: FC<FooterProps> = (props) => {
-  const { isDarkBg, logoAlt, width = 70, height = 50 } = props;
+  const { isDarkMode, logoAlt, width = 70, height = 50 } = props;
 
   const imgProps: ImageProps = {
-    src: isDarkBg ? LogoOnBlack : LogoOnWhite,
+    src: isDarkMode ? LogoOnBlack : LogoOnWhite,
     width,
     height,
     ...omit({ ...props }, ['logoSrc', 'width', 'height', 'alt']),
