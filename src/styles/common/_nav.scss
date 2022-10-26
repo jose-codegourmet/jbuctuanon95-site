@@ -14,6 +14,18 @@
     // .nav__menu
     &__menu {
     }
+
+    // .nav__toggle-dark-mode
+    &__toggle-dark-mode {
+        @apply cursor-pointer
+            appearance-none
+            border-none
+            bg-transparent
+            text-lg
+            leading-none
+            text-indigo-900
+            dark:text-amber-500;
+    }
 }
 
 .nav-menu {
