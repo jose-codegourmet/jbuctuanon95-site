@@ -1,5 +1,6 @@
 import NavMenu from './NavMenu';
 import ProjectLogo from './ProjectLogo';
+import cn from 'classnames';
 import React from 'react';
 import type { FC } from 'react';
 import { BsFillMoonStarsFill, BsSunFill } from 'react-icons/bs';
@@ -24,8 +25,17 @@ const Nav: FC<NavProps> = (props) => {
           <ProjectLogo isDarkMode={isDarkMode} width="300px" />
         </div>
         <NavMenu className="nav__menu" />
-        <button className="nav__toggle-dark-mode" onClick={handleToggleDarkMode}>
-          {isDarkMode ? <BsSunFill /> : <BsFillMoonStarsFill />}
+        <button
+          className={cn('nav__toggle-dark-mode', {
+            'nav__toggle-dark-mode--active': isDarkMode,
+            'nav__toggle-dark-mode--not-active': !isDarkMode,
+          })}
+          onClick={handleToggleDarkMode}
+        >
+          <div className="slider">
+            <BsFillMoonStarsFill className="moon" />
+            <BsSunFill className="sun" />
+          </div>
         </button>
       </div>
     </nav>

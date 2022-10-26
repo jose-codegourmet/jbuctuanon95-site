@@ -9,6 +9,10 @@
     // .nav__logo
     &__logo {
         @apply py-2;
+        img {
+            object-fit: contain;
+            object-position: left;
+        }
     }
 
     // .nav__menu
@@ -17,14 +21,45 @@
 
     // .nav__toggle-dark-mode
     &__toggle-dark-mode {
-        @apply cursor-pointer
+        @apply relative
+            cursor-pointer
             appearance-none
+            overflow-hidden
             border-none
             bg-transparent
-            text-lg
-            leading-none
-            text-indigo-900
-            dark:text-amber-500;
+            p-4
+            leading-none;
+
+        .slider {
+            @apply absolute
+                top-0
+                left-0
+                h-full
+                duration-300
+                ease-out;
+            .sun,
+            .moon {
+                font-size: 1em;
+                @apply flex
+                    h-full
+                    w-full
+                    items-center
+                    justify-center;
+            }
+        }
+
+        // .nav__toggle-dark-mode--active
+        &--active {
+            @apply text-amber-500;
+            .slider {
+                @apply -translate-y-full;
+            }
+        }
+
+        // .nav__toggle-dark-mode--not-active
+        &--not-active {
+            @apply text-indigo-900;
+        }
     }
 }
 
@@ -34,7 +69,14 @@
 
     .nav-menu__item {
         a {
-            @apply flex h-full items-center px-8 hover:bg-primary;
+            @apply flex
+                h-full
+                items-center
+                px-8
+                hover:bg-neutral-400
+                hover:bg-opacity-10
+                dark:hover:bg-primary
+                dark:hover:bg-opacity-100;
         }
     }
 }
