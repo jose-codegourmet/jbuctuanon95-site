@@ -1,0 +1,16 @@
+@layer components {
+    button {
+        @apply cursor-pointer
+        appearance-none
+        border-r-0
+        border-none
+        py-2
+        px-8
+        text-2xl;
+        font-family: theme('fontFamily.sans');
+    }
+}
+
+.button-primary {
+    @apply bg-primary text-white;
+}
