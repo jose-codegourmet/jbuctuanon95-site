@@ -50,7 +50,7 @@
 
         // .nav__toggle-dark-mode--active
         &--active {
-            @apply text-amber-500;
+            @apply text-indigo-500;
             .slider {
                 @apply -translate-y-full;
             }
@@ -58,7 +58,7 @@
 
         // .nav__toggle-dark-mode--not-active
         &--not-active {
-            @apply text-indigo-900;
+            @apply text-orange-400;
         }
     }
 }

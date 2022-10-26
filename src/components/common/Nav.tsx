@@ -33,8 +33,8 @@ const Nav: FC<NavProps> = (props) => {
           onClick={handleToggleDarkMode}
         >
           <div className="slider">
-            <BsFillMoonStarsFill className="moon" />
             <BsSunFill className="sun" />
+            <BsFillMoonStarsFill className="moon" />
           </div>
         </button>
       </div>
