@@ -1,0 +1,28 @@
+.nav {
+    @apply fixed top-0 left-0 z-50 w-full dark:text-white;
+
+    // .nav__container
+    &__container {
+        @apply container mx-auto flex flex-nowrap items-stretch;
+    }
+
+    // .nav__logo
+    &__logo {
+        @apply py-2;
+    }
+
+    // .nav__menu
+    &__menu {
+    }
+}
+
+.nav-menu {
+    list-style-type: none;
+    @apply my-0 ml-auto mr-0 flex items-stretch;
+
+    .nav-menu__item {
+        a {
+            @apply flex h-full items-center px-8 hover:bg-primary;
+        }
+    }
+}
