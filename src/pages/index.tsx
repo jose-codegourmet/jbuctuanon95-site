@@ -3,7 +3,6 @@ import PageWrapper from 'src/wrappers/PageWrapper';
 export default function Home() {
   return (
     <PageWrapper
-      isDarkMode
       seoProps={{
         title: 'home',
       }}

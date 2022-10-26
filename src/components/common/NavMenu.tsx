@@ -14,7 +14,9 @@ const NavMenu: FC<NavMenuProps> = (props) => {
     <ul className={`nav-menu ${className}`}>
       {[...WEBSITE_NAV].map((m, k) => (
         <li key={`${k}-${m.id}`} className="nav-menu__item">
-          <Link href={m.link}>{m.label}</Link>
+          <Link href={m.link} passHref>
+            <a {...(m.external && { target: '_blank' })}>{m.label}</a>
+          </Link>
         </li>
       ))}
     </ul>
