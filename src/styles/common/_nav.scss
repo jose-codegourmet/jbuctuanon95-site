@@ -50,7 +50,7 @@
 
         // .nav__toggle-dark-mode--active
         &--active {
-            @apply text-amber-500;
+            @apply text-indigo-500;
             .slider {
                 @apply -translate-y-full;
             }
@@ -58,7 +58,7 @@
 
         // .nav__toggle-dark-mode--not-active
         &--not-active {
-            @apply text-indigo-900;
+            @apply text-orange-400;
         }
     }
 }
@@ -69,14 +69,37 @@
 
     .nav-menu__item {
         a {
-            @apply flex
+            @apply relative
+                flex
                 h-full
                 items-center
                 px-8
                 hover:bg-neutral-400
                 hover:bg-opacity-10
-                dark:hover:bg-primary
-                dark:hover:bg-opacity-100;
+                dark:hover:bg-opacity-0;
+            &:before {
+                content: '';
+                @apply absolute
+                    top-full
+                    left-0
+                    block
+                    h-1
+                    w-full
+                    origin-left
+                    scale-x-0
+                    bg-gradient-to-r
+                    duration-300
+                    ease-out
+                    dark:from-indigo-500
+                    dark:via-purple-500
+                    dark:to-pink-500;
+            }
+
+            &:hover {
+                &:before {
+                    @apply scale-x-100;
+                }
+            }
         }
     }
 }
