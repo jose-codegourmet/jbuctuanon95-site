@@ -8,12 +8,12 @@ export default function Home() {
         title: 'home',
       }}
     >
-      <section id="home" className="hero-section items-center h-screen flex">
+      <section id="home" className="hero-section items-center h-screen flex ">
         <div className="container flex items-start">
           <div className="w-2/3">
             <h5 className="text-2xl leading-none m-0 uppercase">I am a</h5>
-            <h1 className="m-0 text-6xl leading-none h-auto">Web Designer &</h1>
-            <h1 className="m-0 text-6xl leading-none h-auto">Web Developer</h1>
+            <h1 className="m-0 text-6xl leading-none h-auto">Fullstack Developer &</h1>
+            <h1 className="m-0 text-6xl leading-none h-auto">Web Designer</h1>
           </div>
           <div className="w-1/3 ml-auto">
             <p className="text-2xl">
@@ -30,13 +30,11 @@ export default function Home() {
         <div className="container">
           <div className="w-3/4 mx-auto">
             <p className="text-4xl text-center">
-              Jose is a front-end developer from the Philippines with expertise in React and Shopify. He makes projects
-              for start-ups and large corporations stand out by fusing creative strategy and intelligence.
-            </p>
-            <p className="text-4xl text-center">
-              Jose is a full-stack developer who also runs his own business in his spare time. a start-up that
-              specializes in developing commercial solutions for small to large organizations. He has led numerous
-              initiatives and contributed to them, ranging from e-commerce to business dashboards.
+              I work as a front-end developer for Shopify and React in the Philippines. I combine intelligent strategy
+              and creativity to make projects for huge organizations and start-ups stand out. I am a full-stack
+              developer who also works part-time for myself. A startup that focuses on creating commercial solutions for
+              medium-sized to large businesses. I have also led and participated in many projects, from e-commerce to
+              business dashboards.
             </p>
           </div>
         </div>
