@@ -28,7 +28,7 @@ const PageWrapper: FC<PageWrapperProps> = (props) => {
     >
       <Seo {...seoProps} />
       {hasNav && <Nav isDarkMode={isDarkMode} />}
-      <main className={`pt-10 ${mainClass}`}>{children}</main>
+      <main className={`${mainClass}`}>{children}</main>
       {hasFooter && <Footer isDarkMode={isDarkMode} />}
     </div>
   );
