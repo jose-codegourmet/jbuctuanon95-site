@@ -18,5 +18,5 @@
     "jsx": "preserve"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "src/components/threedee/**/*.tsx"]
 }
