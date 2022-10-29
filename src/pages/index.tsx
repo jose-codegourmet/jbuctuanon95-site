@@ -1,4 +1,5 @@
 import React from 'react';
+import ApolloModel from 'src/components/threedee/ApolloModel';
 import PageWrapper from 'src/wrappers/PageWrapper';
 
 export default function Home() {
@@ -8,14 +9,12 @@ export default function Home() {
         title: 'home',
       }}
     >
-      <section id="home" className="hero-section items-center h-screen flex ">
+      <section id="home" className="hero-section items-center h-screen flex relative">
         <div className="container flex items-start">
-          <div className="w-2/3">
+          <div className="w-1/3">
             <h5 className="text-2xl leading-none m-0 uppercase">I am a</h5>
             <h1 className="m-0 text-6xl leading-none h-auto">Fullstack Developer &</h1>
             <h1 className="m-0 text-6xl leading-none h-auto">Web Designer</h1>
-          </div>
-          <div className="w-1/3 ml-auto">
             <p className="text-2xl">
               I am a front-end developer based in
               <span className="text-primary">12.8797° N, 121.7740° E</span>. I've been consulting in graphic design,
@@ -24,6 +23,9 @@ export default function Home() {
             </p>
             <button className="button-primary">let's talk</button>
           </div>
+        </div>
+        <div className="threeFiberObject absolute top-0 right-0 w-full h-full">
+          <ApolloModel />
         </div>
       </section>
       <section id="about" className="about-section py-10">
