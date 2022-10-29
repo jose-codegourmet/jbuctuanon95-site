@@ -1,9 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import ClientsSection from 'src/components/sections/ClientsSection';
 import ApolloModel from 'src/components/threedee/ApolloModel';
 import PeppeModel from 'src/components/threedee/PeppeModel';
+import type { RootState } from 'src/redux/reducers';
 import PageWrapper from 'src/wrappers/PageWrapper';
 
 export default function Home() {
+  const isDarkMode = useSelector((state: RootState) => state.project.isDarkMode);
+
   return (
     <PageWrapper
       seoProps={{
@@ -43,18 +48,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section id="companies" className="companies-section py-10">
-        <div className="container flex w-full items-start">
-          <div className="w-1/3">
-            <h1 className="text-4xl">Organizations I've worked for</h1>
-            <p className="text-2xl">
-              After six years of practice. I've had the pleasure of working for both fantastic start-ups and significant
-              corporations. Both of us have benefited from their assistance in helping me advance as a developer.
-            </p>
-          </div>
-          <div className="w-2/6 px-8"></div>
-        </div>
-      </section>
+      <ClientsSection isDarkMode={isDarkMode} />
       <section id="lets-connect" className="companies-section py-10 relative ">
         <div className="container flex w-full h-auto min-h-[500px] items-center">
           <div className="w-1/3">

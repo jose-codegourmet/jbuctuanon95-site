@@ -45,6 +45,9 @@ module.exports = {
       fontFamily: {
         sans: ['nimbus-sans-extended', ...defaultTheme.fontFamily.sans],
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
     },
   },
   variants: {

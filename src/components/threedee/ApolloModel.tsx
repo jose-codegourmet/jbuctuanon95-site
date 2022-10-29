@@ -12,10 +12,10 @@ const Model = () => {
     const a = clock.getElapsedTime();
     if (mymesh.current) {
       mymesh.current.rotation.y = a / 10;
-      mymesh.current.rotation.z = 0.15;
-      mymesh.current.position.y = -1.5;
+      mymesh.current.rotation.z = 0.25;
+      mymesh.current.position.y = -0.5;
       mymesh.current.position.x = 0.2;
-      mymesh.current.position.z = 3.6;
+      mymesh.current.position.z = 2.5;
     }
   });
 
