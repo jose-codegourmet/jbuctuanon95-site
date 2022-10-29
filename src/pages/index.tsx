@@ -1,5 +1,6 @@
 import React from 'react';
 import ApolloModel from 'src/components/threedee/ApolloModel';
+import PeppeModel from 'src/components/threedee/PeppeModel';
 import PageWrapper from 'src/wrappers/PageWrapper';
 
 export default function Home() {
@@ -8,10 +9,14 @@ export default function Home() {
       seoProps={{
         title: 'home',
       }}
+      mainClass="home-page"
     >
+      <div className="threeFiberObject--apollo-head threeFiberObject top-[100px] absolute right-0">
+        <ApolloModel />
+      </div>
       <section id="home" className="hero-section items-center h-screen flex relative">
         <div className="container flex items-start">
-          <div className="w-1/3">
+          <div className="md:w-1/2 w-full">
             <h5 className="text-2xl leading-none m-0 uppercase">I am a</h5>
             <h1 className="m-0 text-6xl leading-none h-auto">Fullstack Developer &</h1>
             <h1 className="m-0 text-6xl leading-none h-auto">Web Designer</h1>
@@ -23,9 +28,6 @@ export default function Home() {
             </p>
             <button className="button-primary">let's talk</button>
           </div>
-        </div>
-        <div className="threeFiberObject absolute top-0 right-0 w-full h-full">
-          <ApolloModel />
         </div>
       </section>
       <section id="about" className="about-section py-10">
@@ -53,8 +55,8 @@ export default function Home() {
           <div className="w-2/6 px-8"></div>
         </div>
       </section>
-      <section id="lets-connect" className="companies-section py-10">
-        <div className="container flex w-full items-start">
+      <section id="lets-connect" className="companies-section py-10 relative ">
+        <div className="container flex w-full h-auto min-h-[500px] items-center">
           <div className="w-1/3">
             <h1 className="text-4xl">Let's connect</h1>
             <p className="text-2xl">
@@ -63,7 +65,11 @@ export default function Home() {
             </p>
             <button className="button-primary">Leave a message</button>
           </div>
-          <div className="w-2/6 px-8"></div>
+        </div>
+        <div className="w-2/3 absolute h-full right-0 top-0 flex items-center">
+          <div className="threeFiberObject threeFiberObject--peppe  ">
+            <PeppeModel />
+          </div>
         </div>
       </section>
     </PageWrapper>

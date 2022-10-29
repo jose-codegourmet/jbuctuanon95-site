@@ -1,0 +1,14 @@
+.hero-section {
+    z-index: 1;
+
+    .threeFiberObject {
+        width: 1000px;
+        height: 1000px;
+        transform: scale(2);
+        right: 0;
+    }
+
+    & + section {
+        z-index: 10;
+    }
+}
