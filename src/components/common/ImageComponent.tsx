@@ -10,10 +10,19 @@ export interface ImageComponentProps extends ProjectStateTypes, Omit<ImageProps,
   src: string;
   darkModeSrc?: string;
   url?: string;
+  isNewTab?: boolean;
 }
 
 const ImageComponent: FC<ImageComponentProps> = (props) => {
-  const { url, isDarkMode, src, darkModeSrc, alt = ' Jose Adrian Buctuanon' } = props;
+  const {
+    className = 'object-contain',
+    url,
+    isDarkMode,
+    src,
+    darkModeSrc,
+    alt = ' Jose Adrian Buctuanon',
+    isNewTab = false,
+  } = props;
 
   const imgProps: ImageProps = {
     src,
@@ -27,14 +36,14 @@ const ImageComponent: FC<ImageComponentProps> = (props) => {
   if (url) {
     return (
       <Link href={url} passHref>
-        <a target="_blank">
-          <Image alt={alt} {...imgProps} className="object-contain" />
+        <a {...(isNewTab && { target: '_blank' })}>
+          <Image alt={alt} {...imgProps} className={className} />
         </a>
       </Link>
     );
   }
 
-  return <Image alt={alt} {...imgProps} className="object-contain" />;
+  return <Image alt={alt} {...imgProps} className={className} />;
 };
 
 export default ImageComponent;
