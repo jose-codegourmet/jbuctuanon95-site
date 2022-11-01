@@ -1,6 +1,7 @@
 import NavMenu from './NavMenu';
 import ProjectLogo from './ProjectLogo';
 import cn from 'classnames';
+import Link from 'next/link';
 import React from 'react';
 import type { FC } from 'react';
 import { BsFillMoonStarsFill, BsSunFill } from 'react-icons/bs';
@@ -22,7 +23,9 @@ const Nav: FC<NavProps> = (props) => {
     <nav className="nav">
       <div className="nav__container">
         <div className="nav__logo">
-          <ProjectLogo isDarkMode={isDarkMode} width="300px" />
+          <Link href="/">
+            <ProjectLogo isDarkMode={isDarkMode} width="300px" />
+          </Link>
         </div>
         <NavMenu className="nav__menu" />
         <button

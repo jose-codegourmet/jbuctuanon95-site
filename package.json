@@ -23,6 +23,9 @@
     ]
   },
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "^15.13.1",
+    "@contentful/rich-text-react-renderer": "^15.12.1",
+    "@contentful/rich-text-types": "^15.13.2",
     "@react-spring/three": "^9.5.5",
     "@react-three/drei": "^9.37.1",
     "@react-three/fiber": "^8.8.10",
