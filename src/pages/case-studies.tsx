@@ -35,7 +35,7 @@ const CaseStudiesPage: FC<CaseStudiesPageProps> = (props) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const data = await getAllCaseStudies();
 
   return {
