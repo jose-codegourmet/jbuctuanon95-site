@@ -1,16 +1,12 @@
-import Link from 'next/link';
 import type { FC } from 'react';
 import React from 'react';
-import ImageComponent from 'src/components/common/ImageComponent';
-import RichText from 'src/components/common/RichText';
-import { getAllCaseStudies } from 'src/lib/caseStudy';
-import type { CASE_STUDY_RESULTS_FIELDS_TYPE } from 'src/lib/caseStudy';
+import CaseStudyCard from 'src/components/cards/CaseStudyCard';
+import { getAllCaseStudies } from 'src/lib/caseStudy/caseStudy';
+import type { getAllCaseStudiesReturnType } from 'src/lib/caseStudy/caseStudy';
 import PageWrapper from 'src/wrappers/PageWrapper';
 
 export type CaseStudiesPageProps = {
-  caseStudies: {
-    items: CASE_STUDY_RESULTS_FIELDS_TYPE[];
-  };
+  caseStudies: getAllCaseStudiesReturnType;
 };
 
 const CaseStudiesPage: FC<CaseStudiesPageProps> = (props) => {
@@ -28,29 +24,9 @@ const CaseStudiesPage: FC<CaseStudiesPageProps> = (props) => {
     >
       <section>
         <div className="container">
-          <div className="grid-cols-2">
+          <div className="grid grid-cols-3 gap-8">
             {caseStudies.items.map((cs, k) => (
-              <div className="case-study-block col-span-1 flex flex-col flex-nowrap" key={k}>
-                <div className="case-study-block__img pt-[100%] w-full relative">
-                  <ImageComponent
-                    src={cs.banner.url}
-                    alt={cs.title}
-                    url={`/case-studies/${cs.slug}`}
-                    layout="fill"
-                    className="case-study-block__img__src w-full object-cover"
-                  />
-                </div>
-                <div className="case-study-block__info w-full">
-                  {cs.title && (
-                    <Link passHref href={`/case-studies/${cs.slug}`}>
-                      <a className="w-full">
-                        <h2 className="text-2xl">{cs.title}</h2>
-                      </a>
-                    </Link>
-                  )}
-                  {cs.excerpt && <RichText content={cs.excerpt.json} />}
-                </div>
-              </div>
+              <CaseStudyCard {...cs} key={k} bannerProps={{ className: 'object-cover' }} />
             ))}
           </div>
         </div>

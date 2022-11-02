@@ -1,6 +1,6 @@
 import { fetchGraphQL } from './api';
-import { CASE_STUDY_SEARCHABLE_FIELDS } from './caseStudy';
 import { CONTENTFUL_COLLECTIONS } from 'src/constants/contentful';
+import { CASE_STUDY_SEARCHABLE_FIELDS } from 'src/lib/caseStudy/queries';
 
 export async function previewContentfulPost({ entity, slug }: { entity: string; slug: string }) {
   const itemsQuery: string | unknown = {

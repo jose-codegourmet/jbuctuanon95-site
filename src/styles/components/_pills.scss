@@ -1,0 +1,23 @@
+.pills-collection {
+    @apply mt-0
+        mb-0
+        flex
+        list-none
+        flex-wrap
+        items-start
+        pl-0
+        align-top
+        text-xs;
+    // .pills-collection__item
+    &__item {
+        @apply dark:hover:bg-primary-gradient
+            m-2
+            rounded-[1rem]
+            bg-neutral-100
+            px-5
+            py-1
+            hover:bg-neutral-200
+            dark:bg-opacity-10
+            dark:text-white;
+    }
+}

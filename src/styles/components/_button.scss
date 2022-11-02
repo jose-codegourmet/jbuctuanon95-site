@@ -15,3 +15,7 @@
 .button-primary {
     @apply bg-primary text-white;
 }
+
+.button-outline-to-fill {
+    @apply hover:bg-primary-gradient w-auto border-2 border-solid border-white text-white;
+}

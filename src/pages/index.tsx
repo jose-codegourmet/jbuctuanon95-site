@@ -1,12 +1,12 @@
-import Link from 'next/link';
 import type { FC } from 'react';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import ClientsSection from 'src/components/sections/ClientsSection';
+import CaseStudiesSection from 'src/components/sections/home/CaseStudiesSection';
+import ClientsSection from 'src/components/sections/home/ClientsSection';
 import ApolloModel from 'src/components/threedee/ApolloModel';
 import PeppeModel from 'src/components/threedee/PeppeModel';
-import { getAllCaseStudies } from 'src/lib/caseStudy';
-import type { getAllCaseStudiesReturnType } from 'src/lib/caseStudy';
+import { getAllCaseStudies } from 'src/lib/caseStudy/caseStudy';
+import type { getAllCaseStudiesReturnType } from 'src/lib/caseStudy/caseStudy';
 import type { RootState } from 'src/redux/reducers';
 import PageWrapper from 'src/wrappers/PageWrapper';
 
@@ -59,24 +59,8 @@ const Home: FC<HomeProps> = (props) => {
         </div>
       </section>
       <ClientsSection isDarkMode={isDarkMode} />
-      <section id="case-studies" className="case-studies-section py-10">
-        <div className="container flex w-full items-start">
-          <div className="w-1/3">
-            <h1 className="text-4xl">Case Studies</h1>
-            <p className="text-2xl">a selection of accomplishments from various clients, along with my solutions.</p>
-            <Link passHref href="/case-studies">
-              <a className="button button-primary">See More</a>
-            </Link>
-          </div>
-          <div className="w-3/4 mx-auto">
-            <p className="text-4xl text-center">
-              {caseStudies.items.map((cs, k) => (
-                <p key={k}>{cs.title}</p>
-              ))}
-            </p>
-          </div>
-        </div>
-      </section>
+      <CaseStudiesSection caseStudies={caseStudies} />
+
       <section id="lets-connect" className="companies-section py-10 relative ">
         <div className="container flex w-full h-auto min-h-[500px] items-center">
           <div className="w-1/3">
@@ -99,7 +83,7 @@ const Home: FC<HomeProps> = (props) => {
 };
 
 export async function getStaticProps() {
-  const data = await getAllCaseStudies();
+  const data = await getAllCaseStudies({ limit: 5 });
 
   return {
     props: {
