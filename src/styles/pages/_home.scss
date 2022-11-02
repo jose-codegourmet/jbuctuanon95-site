@@ -1,25 +1,5 @@
 .home-page {
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-
     .hero-section {
-        &:before {
-            content: '';
-            @apply pointer-events-none
-                absolute
-                inset-0
-                hidden
-                bg-gradient-radial
-                from-indigo-900
-                dark:flex
-                dark:opacity-50;
-            z-index: 1;
-        }
-
-        .container {
-            z-index: 10;
-        }
     }
 
     .threeFiberObject--apollo-head {

@@ -7,6 +7,14 @@
     .container {
         @apply mx-auto;
     }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    p {
+        margin-block-start: 0.25rem;
+    }
 }
 
 @import './fonts/index';
@@ -23,7 +31,10 @@ body {
 }
 
 main {
-    @apply duration-300
+    @apply relative
+    w-full
+    overflow-hidden
+    duration-300
     ease-out
     dark:bg-neutral-900
     dark:text-neutral-300;

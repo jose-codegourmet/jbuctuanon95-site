@@ -1,6 +1,26 @@
 .hero-section {
     z-index: 1;
 
+    &:before {
+        content: '';
+        @apply pointer-events-none
+            absolute
+            top-0
+            left-0
+            hidden
+            h-[150%]
+            w-full
+            bg-gradient-radial
+            from-indigo-900
+            dark:flex
+            dark:opacity-50;
+        z-index: 1;
+    }
+
+    .container {
+        z-index: 10;
+    }
+
     .threeFiberObject {
         width: 1000px;
         height: 1000px;

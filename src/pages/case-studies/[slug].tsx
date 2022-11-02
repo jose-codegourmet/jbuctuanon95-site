@@ -1,6 +1,6 @@
 import React from 'react';
 import type { FC } from 'react';
-import { getAllCaseStudiesPages, getCaseStudy } from 'src/lib/caseStudy';
+import { getAllCaseStudiesPages, getCaseStudy } from 'src/lib/caseStudy/caseStudy';
 import PageWrapper from 'src/wrappers/PageWrapper';
 
 const CaseStudyPage: FC = () => {

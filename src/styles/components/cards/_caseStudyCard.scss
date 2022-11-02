@@ -1,0 +1,42 @@
+.card {
+    @apply w-full;
+
+    // .card__media
+    &__media {
+        @apply relative mb-5 h-[300px];
+
+        // .card__media__overlay
+        &__overlay {
+            @apply visible
+                absolute
+                inset-0
+                flex
+                w-full
+                translate-y-2
+                items-center
+                justify-center
+                bg-neutral-900
+                bg-opacity-90
+                align-middle
+                opacity-0
+                duration-300
+                ease-out;
+        }
+
+        &:hover {
+            .card__media__overlay {
+                @apply visible
+                    translate-y-0
+                    opacity-100;
+            }
+        }
+    }
+
+    // .card__info
+    &__info {
+        @apply flex
+        flex-col
+        justify-start
+        align-top;
+    }
+}
