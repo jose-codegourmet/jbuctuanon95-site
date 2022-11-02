@@ -82,7 +82,7 @@ const Home: FC<HomeProps> = (props) => {
   );
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const data = await getAllCaseStudies({ limit: 5 });
 
   return {
