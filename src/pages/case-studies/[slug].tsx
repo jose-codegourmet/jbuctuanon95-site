@@ -3,7 +3,9 @@ import type { FC } from 'react';
 import { getAllCaseStudiesPages, getCaseStudy } from 'src/lib/caseStudy/caseStudy';
 import PageWrapper from 'src/wrappers/PageWrapper';
 
-const CaseStudyPage: FC = () => {
+const CaseStudyPage: FC = (props) => {
+  console.log('props == ', props);
+
   return (
     <PageWrapper
       seoProps={{
