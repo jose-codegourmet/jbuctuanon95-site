@@ -1,0 +1,55 @@
+.case-study-section {
+    @apply py-10;
+
+    // .case-study-section__container
+    &__container {
+        @apply container
+            flex
+            h-auto
+            w-full
+            items-start
+            justify-center;
+    }
+
+    // .case-study-section__row
+    &__row {
+        @apply flex
+        min-h-[50vh]
+        w-8/12
+        flex-col
+        items-stretch
+        sm:flex-row;
+    }
+
+    // .case-study-section__info
+    &__info {
+        @apply flex
+            w-full
+            flex-col
+            items-start
+            justify-center
+            px-10
+            py-20
+            sm:w-1/2;
+    }
+    // case-study-section__media
+    &__media {
+        @apply relative
+            w-full
+            sm:w-1/2;
+
+        // .case-study-section__media__overlay
+        &__overlay {
+            @apply hide-overlay
+                flex
+                items-center
+                justify-center;
+        }
+
+        &:hover {
+            .case-study-section__media__overlay {
+                @apply show-overlay;
+            }
+        }
+    }
+}

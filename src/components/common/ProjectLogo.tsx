@@ -18,7 +18,7 @@ const ProjectLogo: FC<FooterProps> = (props) => {
     src: isDarkMode ? LogoOnBlack : LogoOnWhite,
     width,
     height,
-    ...omit({ ...props }, ['logoSrc', 'width', 'height', 'alt']),
+    ...omit({ ...props }, ['logoSrc', 'width', 'height', 'alt', 'isDarkMode']),
   };
 
   return <Image alt={logoAlt || 'Project X'} {...imgProps} />;

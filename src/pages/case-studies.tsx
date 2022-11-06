@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import React from 'react';
-import CaseStudyCard from 'src/components/cards/CaseStudyCard';
+import CaseStudySection from 'src/components/sections/case-studies/CaseStudySection';
 import { getAllCaseStudies } from 'src/lib/caseStudy/caseStudy';
 import type { getAllCaseStudiesReturnType } from 'src/lib/caseStudy/caseStudy';
 import PageWrapper from 'src/wrappers/PageWrapper';
@@ -22,20 +22,14 @@ const CaseStudiesPage: FC<CaseStudiesPageProps> = (props) => {
         title: 'Case Studies',
       }}
     >
-      <section>
-        <div className="container">
-          <div className="grid grid-cols-3 gap-8">
-            {caseStudies.items.map((cs, k) => (
-              <CaseStudyCard {...cs} key={k} bannerProps={{ className: 'object-cover' }} />
-            ))}
-          </div>
-        </div>
-      </section>
+      {caseStudies.items.map((cs, k) => (
+        <CaseStudySection {...cs} key={k} isMediaLeft={k % 2 === 0} bannerProps={{ className: 'object-cover' }} />
+      ))}
     </PageWrapper>
   );
 };
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const data = await getAllCaseStudies();
 
   return {

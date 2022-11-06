@@ -23,8 +23,10 @@ const Nav: FC<NavProps> = (props) => {
     <nav className="nav">
       <div className="nav__container">
         <div className="nav__logo">
-          <Link href="/">
-            <ProjectLogo isDarkMode={isDarkMode} width="300px" />
+          <Link passHref href="/">
+            <a className="w-auto">
+              <ProjectLogo isDarkMode={isDarkMode} width="300px" />
+            </a>
           </Link>
         </div>
         <NavMenu className="nav__menu" />
