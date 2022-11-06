@@ -1,0 +1,14 @@
+@layer components {
+    .hide-overlay {
+        @apply hide-reveal-bottom-to-top
+            absolute
+            inset-0
+            w-full
+            bg-neutral-900
+            bg-opacity-90;
+    }
+
+    .show-overlay {
+        @apply show-reveal-bottom-to-top;
+    }
+}

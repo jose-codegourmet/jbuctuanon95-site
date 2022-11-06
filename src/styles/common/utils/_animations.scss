@@ -1,0 +1,16 @@
+@layer components {
+    .hide-reveal-bottom-to-top {
+        @apply hidden
+            translate-y-2
+            opacity-0
+            duration-300
+            ease-out;
+    }
+
+    .show-reveal-bottom-to-top {
+        @apply visible
+            translate-y-0
+            opacity-100
+            ease-out;
+    }
+}

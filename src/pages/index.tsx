@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { Parallax } from 'react-scroll-parallax';
 import CaseStudiesSection from 'src/components/sections/home/CaseStudiesSection';
 import ClientsSection from 'src/components/sections/home/ClientsSection';
 import ApolloModel from 'src/components/threedee/ApolloModel';
@@ -27,7 +28,9 @@ const Home: FC<HomeProps> = (props) => {
       mainClass="home-page"
     >
       <div className="threeFiberObject--apollo-head threeFiberObject top-[100px] absolute right-0">
-        <ApolloModel />
+        <Parallax speed={100} className="w-full absolute top-0 left-0 h-full ">
+          <ApolloModel />
+        </Parallax>
       </div>
       <section id="home" className="hero-section items-center h-screen flex relative">
         <div className="container flex items-start">

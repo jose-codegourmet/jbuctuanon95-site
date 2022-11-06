@@ -7,27 +7,15 @@
 
         // .card__media__overlay
         &__overlay {
-            @apply visible
-                absolute
-                inset-0
+            @apply hide-overlay
                 flex
-                w-full
-                translate-y-2
                 items-center
-                justify-center
-                bg-neutral-900
-                bg-opacity-90
-                align-middle
-                opacity-0
-                duration-300
-                ease-out;
+                justify-center;
         }
 
         &:hover {
             .card__media__overlay {
-                @apply visible
-                    translate-y-0
-                    opacity-100;
+                @apply show-overlay;
             }
         }
     }
