@@ -17,6 +17,11 @@ export type CaseStudyPageProps = {
 
 const CaseStudyPage: FC<CaseStudyPageProps> = (props) => {
   const { caseStudyData, nextCaseStudy } = props;
+
+  if (!caseStudyData && !nextCaseStudy) {
+    return null;
+  }
+
   const { problem, samplesOrImagesCollection, solution } = caseStudyData;
   const { items: nextCaseStudyItems } = nextCaseStudy;
 
@@ -75,11 +80,18 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
   const caseStudyData = await getCaseStudy(params.slug);
   const nextCaseStudy = await getNextCaseStudy({ exceptSlug: params.slug });
 
+  if (!caseStudyData) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       caseStudyData,
       nextCaseStudy,
     },
+    revalidate: 10,
   };
 }
 
