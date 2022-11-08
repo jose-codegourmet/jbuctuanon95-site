@@ -1,42 +1,131 @@
 // @ts-nocheck
-import { Environment, useGLTF } from '@react-three/drei';
-import { Canvas, useFrame } from '@react-three/fiber';
-import React, { Suspense, useLayoutEffect, useRef } from 'react';
+import { PeppeBareModel } from './PeppeModel';
+import {
+  CameraShake,
+  Environment,
+  OrthographicCamera,
+  PointMaterial,
+  Points,
+  ScrollControls,
+  Sphere,
+  useGLTF,
+  useScroll,
+} from '@react-three/drei';
+import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { random } from 'maath';
+import React, { Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+import * as THREE from 'three';
+
+const Stars = (props) => {
+  const { isDarkMode } = props;
+  const ref = useRef();
+  const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.5 }));
+  useFrame((state, delta) => {
+    ref.current.rotation.y -= delta / 10;
+  });
+  return (
+    <group rotation={[0, 0, 0]} scale={4}>
+      <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
+        <PointMaterial
+          transparent
+          color={isDarkMode ? 'pink' : '#a9abf3'}
+          size={isDarkMode ? 0.01 : 0.03}
+          sizeAttenuation={true}
+          depthWrite={false}
+        />
+      </Points>
+    </group>
+  );
+};
+
+const Rig = () => {
+  // const [vec] = useState(() => new THREE.Vector3());
+  // const { camera, mouse } = useThree();
+  // useFrame(() => camera.position.lerp(vec.set(mouse.x * 5, 0, 5), 0.05));
+  return (
+    <CameraShake
+      maxYaw={0.01}
+      maxPitch={0.01}
+      maxRoll={0.01}
+      yawFrequency={0.1}
+      pitchFrequency={0.5}
+      rollFrequency={0.4}
+    />
+  );
+};
 
 const Model = () => {
-  const mymesh: any = useRef();
-  const { scene } = useGLTF('./3d/apollohead/scene.gltf');
+  const apolloMesh: any = useRef();
+  const peppeMesh: any = useRef();
+  const { scene: ApolloScene } = useGLTF('./3d/apollohead/scene.gltf');
+  const { scene: PeppeScene } = useGLTF('./3d/pepe/scene.gltf');
 
   useFrame(({ clock }) => {
     const a = clock.getElapsedTime();
-    if (mymesh.current) {
-      mymesh.current.rotation.y = a / 10;
-      mymesh.current.rotation.z = 0.25;
-      mymesh.current.position.y = -0.5;
-      mymesh.current.position.x = 0.2;
-      mymesh.current.position.z = 2.5;
+
+    const handleAnimation = () => {
+      if (window && apolloMesh.current && peppeMesh.current) {
+        const position = window.pageYOffset / 100;
+        apolloMesh.current.position.y = position - 0.5;
+        peppeMesh.current.position.y = position - 7;
+      }
+    };
+
+    if (window && a && apolloMesh?.current && peppeMesh?.current) {
+      window.addEventListener('scroll', handleAnimation, { passive: true });
+      apolloMesh.current.rotation.y = a / 5;
+      apolloMesh.current.rotation.z = 0.15;
+      peppeMesh.current.rotation.y = -a / 2;
+      peppeMesh.current.rotation.x = -0.5;
+      peppeMesh.current.rotation.z = -0.3;
+    } else {
+      window.removeEventListener('scroll', handleAnimation);
     }
   });
 
   return (
     <group>
-      <primitive ref={mymesh} object={scene} scale={1.2} />
+      <primitive ref={apolloMesh} object={ApolloScene} scale={[1, 1, 1]} position={[1.2, -0.5, 3.2]} />
+      <primitive ref={peppeMesh} object={PeppeScene} scale={[1, 1, 1]} position={[-4.5, -7, 1]} />
     </group>
   );
 };
 
-const ApolloModel = () => {
+const ApolloModel = (props) => {
+  const { isDarkMode } = props;
   const { ref, inView } = useInView();
   return (
     <div className="apollo-model w-full h-full" ref={ref}>
       <Canvas>
         <Suspense fallback={null}>
-          <ambientLight intensity={1} />
+          {/* <OrthographicCamera /> */}
+          {/* <Sphere>
+            <meshBasicMaterial color="hotpink" />
+          </Sphere> */}
+          {/* <ambientLight intensity={2} />
           <pointLight position={[5, 10, 5]} intensity={1} />
-          <pointLight position={[-5, -2, 5]} intensity={1} />
+          <pointLight position={[-5, -2, 5]} intensity={1} /> */}
+
+          <ambientLight intensity={0.5} color={isDarkMode ? 'blue' : 'pink'} />
           {inView && <Model />}
-          <Environment preset="city" />
+          <spotLight position={[50, 50, -30]} castShadow />
+
+          <pointLight position={[-10, -10, -10]} color={isDarkMode ? 'yellow' : 'white'} intensity={3} />
+          <pointLight position={[0, -5, 5]} color={isDarkMode ? 'orange' : 'white'} intensity={0.5} />
+          <directionalLight position={[0, -5, 0]} color={isDarkMode ? 'red' : 'white'} intensity={2} />
+
+          <Stars isDarkMode={isDarkMode} />
+
+          <rectAreaLight
+            width={15}
+            height={100}
+            position={[30, 30, -10]}
+            intensity={10}
+            onUpdate={(self) => self.lookAt(0, 0, 0)}
+          />
+          <Environment preset="warehouse" />
+          <Rig />
         </Suspense>
       </Canvas>
     </div>
