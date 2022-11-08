@@ -5,7 +5,6 @@ import { Parallax } from 'react-scroll-parallax';
 import CaseStudiesSection from 'src/components/sections/home/CaseStudiesSection';
 import ClientsSection from 'src/components/sections/home/ClientsSection';
 import ApolloModel from 'src/components/threedee/ApolloModel';
-import PeppeModel from 'src/components/threedee/PeppeModel';
 import { getAllCaseStudies } from 'src/lib/caseStudy/caseStudy';
 import type { getAllCaseStudiesReturnType } from 'src/lib/caseStudy/caseStudy';
 import type { RootState } from 'src/redux/reducers';
@@ -28,9 +27,7 @@ const Home: FC<HomeProps> = (props) => {
       mainClass="home-page"
     >
       <div className="threeFiberObject--apollo-head threeFiberObject top-[100px] absolute right-0">
-        <Parallax speed={100} className="w-full absolute top-0 left-0 h-full ">
-          <ApolloModel />
-        </Parallax>
+        <ApolloModel isDarkMode={isDarkMode} />
       </div>
       <section id="home" className="hero-section items-center h-screen flex relative">
         <div className="container flex items-start">
@@ -48,19 +45,21 @@ const Home: FC<HomeProps> = (props) => {
           </div>
         </div>
       </section>
-      <section id="about" className="about-section py-10">
-        <div className="container">
-          <div className="w-3/4 mx-auto">
-            <p className="text-4xl text-center">
-              I work as a front-end developer for Shopify and React in the Philippines. I combine intelligent strategy
-              and creativity to make projects for huge organizations and start-ups stand out. I am a full-stack
-              developer who also works part-time for myself. A startup that focuses on creating commercial solutions for
-              medium-sized to large businesses. I have also led and participated in many projects, from e-commerce to
-              business dashboards.
-            </p>
+      <Parallax speed={-20}>
+        <section id="about" className="about-section py-10 h-screen">
+          <div className="container">
+            <div className="w-2/4 mx-auto">
+              <p className="text-4xl text-center">
+                I work as a front-end developer for Shopify and React in the Philippines. I combine intelligent strategy
+                and creativity to make projects for huge organizations and start-ups stand out. I am a full-stack
+                developer who also works part-time for myself. A startup that focuses on creating commercial solutions
+                for medium-sized to large businesses. I have also led and participated in many projects, from e-commerce
+                to business dashboards.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Parallax>
       <ClientsSection isDarkMode={isDarkMode} />
       <CaseStudiesSection caseStudies={caseStudies} />
 
@@ -73,11 +72,6 @@ const Home: FC<HomeProps> = (props) => {
               best to get back to you whether you have a question or are just looking to say hello!
             </p>
             <button className="button-primary">Leave a message</button>
-          </div>
-        </div>
-        <div className="w-2/3 absolute h-full right-0 top-0 flex items-center">
-          <div className="threeFiberObject threeFiberObject--peppe  ">
-            <PeppeModel />
           </div>
         </div>
       </section>

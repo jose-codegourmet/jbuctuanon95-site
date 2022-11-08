@@ -6,7 +6,7 @@ import { Canvas, useFrame } from '@react-three/fiber';
 import React, { Suspense, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-const Model = () => {
+export const PeppeBareModel = (props) => {
   const mymesh: any = useRef();
   const { scene } = useGLTF('./3d/pepe/scene.gltf');
   const [active, setActive] = useState(false);
@@ -15,7 +15,7 @@ const Model = () => {
 
   return (
     <animated.mesh scale={scale} onClick={() => setActive(!active)}>
-      <primitive ref={mymesh} object={scene} scale={2} />
+      <primitive ref={mymesh} object={scene} scale={2} {...props} />
     </animated.mesh>
   );
 };
@@ -29,7 +29,7 @@ const PeppeModel = () => {
           <ambientLight intensity={1} />
           <pointLight position={[5, 10, 5]} intensity={1} />
           <pointLight position={[-5, -2, 5]} intensity={1} />
-          {inView && <Model />}
+          {inView && <PeppeBareModel />}
           <Environment preset="city" />
           <CameraController />
         </Suspense>
