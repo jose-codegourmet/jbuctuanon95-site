@@ -35,7 +35,12 @@ const CaseStudySection: FC<CaseStudySectionProps> = (props) => {
   );
 
   return (
-    <section id={slug} className="case-study-section">
+    <section
+      id={slug}
+      className={cn('case-study-section', {
+        'case-study-section--is-media-left': isMediaLeft,
+      })}
+    >
       <div className="case-study-section__container">
         <div
           className={cn('case-study-section__row', {

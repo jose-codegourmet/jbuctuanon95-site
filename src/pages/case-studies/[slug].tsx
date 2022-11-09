@@ -35,7 +35,7 @@ const CaseStudyPage: FC<CaseStudyPageProps> = (props) => {
       <CaseStudyBanner {...caseStudyData} />
       <section className="problem">
         <div className="container flex justify-center">
-          <div className="w-full sm:w-1/2 flex-col flex">
+          <div className="w-full md:w-2/3 lg:w-1/2 flex-col flex">
             <h2 className="text-2xl">Problem</h2>
             {problem && <RichText content={problem.json} />}
           </div>
@@ -65,7 +65,7 @@ const CaseStudyPage: FC<CaseStudyPageProps> = (props) => {
       </section>
       <section className="solution">
         <div className="container flex justify-center">
-          <div className="w-full sm:w-1/2 flex-col flex">
+          <div className="w-full md:w-2/3 lg:w-1/2 flex-col flex">
             <h2 className="text-2xl">Solution</h2>
             {solution && <RichText content={solution.json} />}
           </div>

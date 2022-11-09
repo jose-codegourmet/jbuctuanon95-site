@@ -11,25 +11,25 @@ const ClientSection: FC<ClientSectionProps> = (props) => {
 
   return (
     <section id="clients" className="clients-section py-10">
-      <div className="container flex w-full items-start">
-        <div className="w-1/3">
-          <h1 className="text-4xl">Organizations I've worked for</h1>
-          <p className="text-2xl">
+      <div className="container flex w-full items-start flex-wrap">
+        <div className="w-full lg:w-1/3 mb-4 lg:mb-0">
+          <h1 className="text-2xl lg:text-4xl text-center sm:text-left">Clients I work with</h1>
+          <p className="text-base lg:text-2xl">
             After six years of practice. I've had the pleasure of working for both fantastic start-ups and significant
             corporations. Both of us have benefited from their assistance in helping me advance as a developer.
           </p>
         </div>
-        <div className="w-2/3 px-8">
-          <div className=" grid grid-cols-6 gap-10">
+        <div className="w-full lg:w-2/3 px-8">
+          <div className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10">
             {[...CLIENTS].map((c, k) => (
-              <div className="h-[200px] relative w-full" key={k}>
+              <div className="h-10 lg:h-[200px] relative w-full" key={k}>
                 <ImageComponent
                   src={c.src}
                   darkModeSrc={c.darkModeSrc}
                   alt={c.alt}
                   url={c.url}
-                  width="200"
-                  height="60px"
+                  layout="fill"
+                  className="object-contain"
                   isDarkMode={isDarkMode}
                 />
               </div>

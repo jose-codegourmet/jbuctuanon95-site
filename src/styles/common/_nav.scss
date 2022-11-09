@@ -3,16 +3,12 @@
 
     // .nav__container
     &__container {
-        @apply container mx-auto flex flex-nowrap items-stretch;
+        @apply container mx-auto flex h-[70px] flex-nowrap items-stretch;
     }
 
     // .nav__logo
     &__logo {
-        @apply py-2;
-        img {
-            object-fit: contain;
-            object-position: left;
-        }
+        @apply flex py-2;
     }
 
     // .nav__menu
@@ -65,7 +61,7 @@
 
 .nav-menu {
     list-style-type: none;
-    @apply my-0 ml-auto mr-0 flex items-stretch;
+    @apply my-0 ml-auto mr-0 hidden items-stretch md:flex;
 
     .nav-menu__item {
         a {

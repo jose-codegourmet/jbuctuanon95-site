@@ -24,14 +24,14 @@ const Nav: FC<NavProps> = (props) => {
       <div className="nav__container">
         <div className="nav__logo">
           <Link passHref href="/">
-            <a className="w-auto">
-              <ProjectLogo isDarkMode={isDarkMode} width="300px" />
+            <a className="w-[150px] sm:w-[200px] md:w-[350px] relative h-full">
+              <ProjectLogo isDarkMode={isDarkMode} layout="fill" className="object-contain" />
             </a>
           </Link>
         </div>
         <NavMenu className="nav__menu" />
         <button
-          className={cn('nav__toggle-dark-mode', {
+          className={cn('nav__toggle-dark-mode ml-auto', {
             'nav__toggle-dark-mode--active': isDarkMode,
             'nav__toggle-dark-mode--not-active': !isDarkMode,
           })}
