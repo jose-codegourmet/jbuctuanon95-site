@@ -60,6 +60,16 @@ const Model = () => {
   const peppeMesh: any = useRef();
   const { scene: ApolloScene } = useGLTF('./3d/apollohead/scene.gltf');
   const { scene: PeppeScene } = useGLTF('./3d/pepe/scene.gltf');
+  const { width, height } = useThree((state) => state.viewport);
+  console.log('viewport width height', { width, height });
+
+  const isDesktop = width >= 6;
+  const apolloPosX = isDesktop ? 1.2 : 0.8;
+  const apolloPosZ = isDesktop ? 3.2 : 2.5;
+  const apolloPosY = isDesktop ? -0.5 : 0;
+  const peppePosX = isDesktop ? -4.5 : -1.5;
+  const peppePosY = isDesktop ? -7 : -3;
+  const peppePosZ = isDesktop ? 1 : -1;
 
   useFrame(({ clock }) => {
     const a = clock.getElapsedTime();
@@ -67,8 +77,8 @@ const Model = () => {
     const handleAnimation = () => {
       if (window && apolloMesh.current && peppeMesh.current) {
         const position = window.pageYOffset / 100;
-        apolloMesh.current.position.y = position - 0.5;
-        peppeMesh.current.position.y = position - 7;
+        apolloMesh.current.position.y = position + apolloPosY;
+        peppeMesh.current.position.y = position + peppePosY;
       }
     };
 
@@ -86,8 +96,13 @@ const Model = () => {
 
   return (
     <group>
-      <primitive ref={apolloMesh} object={ApolloScene} scale={[1, 1, 1]} position={[1.2, -0.5, 3.2]} />
-      <primitive ref={peppeMesh} object={PeppeScene} scale={[1, 1, 1]} position={[-4.5, -7, 1]} />
+      <primitive
+        ref={apolloMesh}
+        object={ApolloScene}
+        scale={[1, 1, 1]}
+        position={[apolloPosX, apolloPosY, apolloPosZ]}
+      />
+      <primitive ref={peppeMesh} object={PeppeScene} scale={[1, 1, 1]} position={[peppePosX, peppePosY, peppePosZ]} />
     </group>
   );
 };

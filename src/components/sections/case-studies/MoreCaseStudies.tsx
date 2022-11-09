@@ -12,10 +12,10 @@ const MoreCaseStudies: FC<MoreCaseStudiesProps> = (props) => {
 
   return (
     <section id="more-case-studies" className="more-case-studies-section">
-      <div className="container">
+      <div className="container lg:grid-cols-2 gap-20 md:w-2/3 lg:w-1/2 w-full">
         <h3 className="text-2xl"> More Case Studies </h3>
       </div>
-      <div className="container grid grid-cols-1 sm:grid-cols-2 gap-20">
+      <div className="container grid grid-cols-1 lg:grid-cols-2 gap-20 md:w-2/3 lg:w-1/2 w-full">
         {items.map((i, k) => (
           <div key={k} className="flex flex-col w-full">
             <div className="relative w-full h-[300px]">

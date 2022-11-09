@@ -12,12 +12,10 @@ export interface FooterProps extends ProjectStateTypes, Omit<ImageProps, 'src'> 
 }
 
 const ProjectLogo: FC<FooterProps> = (props) => {
-  const { isDarkMode, logoAlt, width = 70, height = 50 } = props;
+  const { isDarkMode, logoAlt } = props;
 
   const imgProps: ImageProps = {
     src: isDarkMode ? LogoOnBlack : LogoOnWhite,
-    width,
-    height,
     ...omit({ ...props }, ['logoSrc', 'width', 'height', 'alt', 'isDarkMode']),
   };
 

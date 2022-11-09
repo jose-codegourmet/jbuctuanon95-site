@@ -15,10 +15,12 @@
     &__row {
         @apply flex
         min-h-[50vh]
-        w-8/12
-        flex-col
+        w-full
+        flex-col-reverse
+        flex-wrap
         items-stretch
-        sm:flex-row;
+        lg:w-8/12
+        lg:flex-row;
     }
 
     // .case-study-section__info
@@ -30,13 +32,15 @@
             justify-center
             px-10
             py-20
-            sm:w-1/2;
+            lg:w-1/2;
     }
+
     // case-study-section__media
     &__media {
         @apply relative
             w-full
-            sm:w-1/2;
+            pt-[55%]
+            lg:w-1/2;
 
         // .case-study-section__media__overlay
         &__overlay {
@@ -50,6 +54,13 @@
             .case-study-section__media__overlay {
                 @apply show-overlay;
             }
+        }
+    }
+
+    // .case-study-section--is-media-left
+    &--is-media-left {
+        .case-study-section__row {
+            @apply flex-col lg:flex-row;
         }
     }
 }
