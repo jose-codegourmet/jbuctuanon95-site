@@ -8,7 +8,7 @@ import MoreCaseStudies from 'src/components/sections/case-studies/MoreCaseStudie
 import { getAllCaseStudiesPages, getCaseStudy, getNextCaseStudy } from 'src/lib/caseStudy/caseStudy';
 import type { getCaseStudyReturnType, getNextCaseStudyReturnType } from 'src/lib/caseStudy/caseStudy';
 import type { CONTENTFUL_IMAGE_ASSET_TYPE } from 'src/types/contentful';
-import PageWrapper from 'src/wrappers/PageWrapper';
+import MainWrapper from 'src/wrappers/MainWrapper';
 
 export type CaseStudyPageProps = {
   caseStudyData: getCaseStudyReturnType;
@@ -26,7 +26,7 @@ const CaseStudyPage: FC<CaseStudyPageProps> = (props) => {
   const { items: nextCaseStudyItems } = nextCaseStudy;
 
   return (
-    <PageWrapper
+    <MainWrapper
       seoProps={{
         title: 'Case Study',
       }}
@@ -72,7 +72,7 @@ const CaseStudyPage: FC<CaseStudyPageProps> = (props) => {
         </div>
       </section>
       <MoreCaseStudies items={nextCaseStudyItems} />
-    </PageWrapper>
+    </MainWrapper>
   );
 };
 

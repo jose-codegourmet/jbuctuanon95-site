@@ -6,6 +6,23 @@ body {
 }
 
 main {
+}
+
+.threeFiberObject--apollo-head {
+    @apply fixed top-0 left-0 z-0 h-screen w-full;
+    z-index: 10;
+    pointer-events: none;
+
+    div {
+        pointer-events: none !important;
+    }
+
+    canvas {
+        pointer-events: none;
+    }
+}
+
+.main-wrapper {
     @apply relative
     w-full
     overflow-hidden

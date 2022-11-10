@@ -4,31 +4,26 @@ import { useSelector } from 'react-redux';
 import { Parallax } from 'react-scroll-parallax';
 import CaseStudiesSection from 'src/components/sections/home/CaseStudiesSection';
 import ClientsSection from 'src/components/sections/home/ClientsSection';
-import ApolloModel from 'src/components/threedee/ApolloModel';
 import { getAllCaseStudies } from 'src/lib/caseStudy/caseStudy';
 import type { getAllCaseStudiesReturnType } from 'src/lib/caseStudy/caseStudy';
 import type { RootState } from 'src/redux/reducers';
-import PageWrapper from 'src/wrappers/PageWrapper';
+import MainWrapper from 'src/wrappers/MainWrapper';
 
 interface HomeProps {
   caseStudies: getAllCaseStudiesReturnType;
 }
 
 const Home: FC<HomeProps> = (props) => {
-  // console.log('++props === ', props);
   const { caseStudies } = props;
   const isDarkMode = useSelector((state: RootState) => state.project.isDarkMode);
 
   return (
-    <PageWrapper
+    <MainWrapper
       seoProps={{
         title: 'home',
       }}
       mainClass="home-page"
     >
-      <div className="threeFiberObject--apollo-head threeFiberObject top-[100px] absolute right-0">
-        <ApolloModel isDarkMode={isDarkMode} />
-      </div>
       <section id="home" className="hero-section pt-[100px] sm:pt-0 items-start sm:items-center h-screen flex relative">
         <div className="container flex items-start">
           <div className="w-2/3 lg:w-1/2">
@@ -74,7 +69,7 @@ const Home: FC<HomeProps> = (props) => {
           </div>
         </div>
       </section>
-    </PageWrapper>
+    </MainWrapper>
   );
 };
 

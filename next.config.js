@@ -11,6 +11,6 @@ module.exports = {
 
   // for MSW workaround https://github.com/vercel/next.js/issues/40904
   experimental: {
-    esmExternals: false,
+    esmExternals: true,
   },
 };
