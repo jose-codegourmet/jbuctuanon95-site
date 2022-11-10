@@ -1,28 +1,4 @@
 .home-page {
     .hero-section {
     }
-
-    .threeFiberObject--apollo-head {
-        // top: 0;
-        // right: -10%;
-        // width: 1200px;
-        // height: 1200px;
-        // overflow: hidden;
-        @apply fixed top-0 left-0 z-0 h-screen w-full;
-        z-index: 10;
-        pointer-events: none;
-
-        div {
-            pointer-events: none !important;
-        }
-
-        canvas {
-            pointer-events: none;
-        }
-    }
-
-    .threeFiberObject--peppe {
-        width: 100%;
-        height: 100%;
-    }
 }

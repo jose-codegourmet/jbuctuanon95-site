@@ -12,6 +12,8 @@ import {
   useScroll,
 } from '@react-three/drei';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import { AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion-3d';
 import { random } from 'maath';
 import React, { Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -55,16 +57,15 @@ const Rig = () => {
   );
 };
 
-const Model = () => {
+const Models = ({ currPage }) => {
   const apolloMesh: any = useRef();
   const peppeMesh: any = useRef();
   const { scene: ApolloScene } = useGLTF('./3d/apollohead/scene.gltf');
   const { scene: PeppeScene } = useGLTF('./3d/pepe/scene.gltf');
   const { width, height } = useThree((state) => state.viewport);
-  console.log('viewport width height', { width, height });
 
   const isDesktop = width >= 6;
-  const apolloPosX = isDesktop ? 1.2 : 0.8;
+  const apolloPosX = isDesktop ? 1.8 : 0.8;
   const apolloPosZ = isDesktop ? 3.2 : 2.5;
   const apolloPosY = isDesktop ? -0.5 : 0;
   const peppePosX = isDesktop ? -4.5 : -1.5;
@@ -83,36 +84,61 @@ const Model = () => {
     };
 
     if (window && a && apolloMesh?.current && peppeMesh?.current) {
-      window.addEventListener('scroll', handleAnimation, { passive: true });
       apolloMesh.current.rotation.y = a / 5;
       apolloMesh.current.rotation.z = 0.15;
       peppeMesh.current.rotation.y = -a / 2;
       peppeMesh.current.rotation.x = -0.5;
       peppeMesh.current.rotation.z = -0.3;
+      window.addEventListener('scroll', handleAnimation, { passive: true });
     } else {
       window.removeEventListener('scroll', handleAnimation);
     }
   });
 
+  const variants = {
+    hidden: { x: 3 },
+    visible: {
+      scale: 1,
+      x: apolloPosX,
+      transition: {
+        duration: 2,
+      },
+    },
+    out: {
+      x: 4,
+      transition: {
+        duration: 2,
+      },
+    },
+  };
+
   return (
-    <group>
-      <primitive
-        ref={apolloMesh}
-        object={ApolloScene}
-        scale={[1, 1, 1]}
-        position={[apolloPosX, apolloPosY, apolloPosZ]}
-      />
-      <primitive ref={peppeMesh} object={PeppeScene} scale={[1, 1, 1]} position={[peppePosX, peppePosY, peppePosZ]} />
-    </group>
+    <AnimatePresence exitBeforeEnter>
+      <group>
+        <motion.primitive
+          ref={apolloMesh}
+          object={ApolloScene}
+          scale={[1, 1, 1]}
+          position={[apolloPosX, apolloPosY, apolloPosZ]}
+          initial="hidden"
+          animate="visible"
+          exit="out"
+          variants={variants}
+        />
+        <primitive ref={peppeMesh} object={PeppeScene} scale={[1, 1, 1]} position={[peppePosX, peppePosY, peppePosZ]} />
+      </group>
+    </AnimatePresence>
   );
 };
 
 const ApolloModel = (props) => {
-  const { isDarkMode } = props;
+  const { isDarkMode, currPage } = props;
+  const isLandingPage = currPage !== '/';
+
   const { ref, inView } = useInView();
   return (
     <div className="apollo-model w-full h-full" ref={ref}>
-      <Canvas>
+      <Canvas performance={{ min: 0.2 }}>
         <Suspense fallback={null}>
           {/* <OrthographicCamera /> */}
           {/* <Sphere>
@@ -123,7 +149,7 @@ const ApolloModel = (props) => {
           <pointLight position={[-5, -2, 5]} intensity={1} /> */}
 
           <ambientLight intensity={0.5} color={isDarkMode ? 'blue' : 'pink'} />
-          {inView && <Model />}
+          {inView && !isLandingPage && <Models isLandingPage={isLandingPage} currPage={currPage} />}
           <spotLight position={[50, 50, -30]} castShadow />
 
           <pointLight position={[-10, -10, -10]} color={isDarkMode ? 'yellow' : 'white'} intensity={3} />

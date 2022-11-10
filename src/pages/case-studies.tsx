@@ -3,7 +3,7 @@ import React from 'react';
 import CaseStudySection from 'src/components/sections/case-studies/CaseStudySection';
 import { getAllCaseStudies } from 'src/lib/caseStudy/caseStudy';
 import type { getAllCaseStudiesReturnType } from 'src/lib/caseStudy/caseStudy';
-import PageWrapper from 'src/wrappers/PageWrapper';
+import MainWrapper from 'src/wrappers/MainWrapper';
 
 export type CaseStudiesPageProps = {
   caseStudies: getAllCaseStudiesReturnType;
@@ -13,7 +13,7 @@ const CaseStudiesPage: FC<CaseStudiesPageProps> = (props) => {
   const { caseStudies } = props;
 
   return (
-    <PageWrapper
+    <MainWrapper
       seoProps={{
         title: 'Case Studies',
       }}
@@ -25,7 +25,7 @@ const CaseStudiesPage: FC<CaseStudiesPageProps> = (props) => {
       {caseStudies.items.map((cs, k) => (
         <CaseStudySection {...cs} key={k} isMediaLeft={k % 2 === 0} bannerProps={{ className: 'object-cover' }} />
       ))}
-    </PageWrapper>
+    </MainWrapper>
   );
 };
 
