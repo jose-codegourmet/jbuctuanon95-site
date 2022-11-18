@@ -1,3 +1,4 @@
+import PageScrollWrapper from './PageScrollWrapper';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import type { FC, ReactElement, ReactNode } from 'react';
@@ -45,14 +46,16 @@ const PageWrapper: FC<PageWrapperProps> = (props) => {
     >
       <div className="main-wrapper">
         {hasNav && <Nav isDarkMode={isDarkMode} />}
-        <AnimatePresence exitBeforeEnter>
-          <motion.div key={asPath} variants={variants} animate="in" initial="out" exit="out">
-            <div className="threeFiberObject--apollo-head threeFiberObject top-[100px] absolute right-0">
-              <ApolloModel isDarkMode={isDarkMode} currPage={asPath} />
-            </div>
-            {children}
-          </motion.div>
-        </AnimatePresence>
+        <PageScrollWrapper>
+          <AnimatePresence exitBeforeEnter>
+            <motion.div key={asPath} variants={variants} animate="in" initial="out" exit="out">
+              <div className="threeFiberObject--apollo-head threeFiberObject top-[100px] absolute right-0">
+                <ApolloModel isDarkMode={isDarkMode} currPage={asPath} />
+              </div>
+              {children}
+            </motion.div>
+          </AnimatePresence>
+        </PageScrollWrapper>
       </div>
     </div>
   );
