@@ -27,7 +27,7 @@
     "@contentful/rich-text-react-renderer": "^15.12.1",
     "@contentful/rich-text-types": "^15.13.2",
     "@react-spring/three": "^9.5.5",
-    "@react-three/drei": "^9.37.1",
+    "@react-three/drei": "^9.46.2",
     "@react-three/fiber": "^8.8.10",
     "@reduxjs/toolkit": "^1.8.6",
     "classnames": "^2.3.2",
