@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useThree } from '@react-three/fiber';
 import React, { useEffect } from 'react';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';

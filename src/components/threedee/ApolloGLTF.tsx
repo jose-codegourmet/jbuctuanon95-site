@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { useGLTF } from '@react-three/drei';
 import { useThree } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
