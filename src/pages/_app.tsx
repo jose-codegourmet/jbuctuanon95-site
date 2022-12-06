@@ -1,7 +1,6 @@
 import type { AppProps } from 'next/app';
 import React from 'react';
 import { Provider } from 'react-redux';
-import { ParallaxProvider } from 'react-scroll-parallax';
 import { store } from 'src/redux/store';
 import 'src/styles/globals.scss';
 import PageWrapper from 'src/wrappers/PageWrapper';
@@ -13,13 +12,11 @@ if (process.env.NODE_ENV === 'development') {
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <ParallaxProvider>
-      <Provider store={store}>
-        <PageWrapper>
-          <Component {...pageProps} />
-        </PageWrapper>
-      </Provider>
-    </ParallaxProvider>
+    <Provider store={store}>
+      <PageWrapper>
+        <Component {...pageProps} />
+      </PageWrapper>
+    </Provider>
   );
 };
 

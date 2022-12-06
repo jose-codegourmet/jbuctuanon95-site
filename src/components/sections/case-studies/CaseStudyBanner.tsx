@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
 import type { FC } from 'react';
-import { Parallax } from 'react-scroll-parallax';
 import ImageComponent from 'src/components/common/ImageComponent';
 import Pills from 'src/components/common/Pills';
 import RichText from 'src/components/common/RichText';
@@ -57,9 +56,7 @@ const CaseStudyBanner: FC<CaseStudySectionProps> = (props) => {
         )}
       </div>
       <div className="h-[600px] container w-full relative">
-        <Parallax speed={50} className="w-full absolute top-[-100px] left-0 h-full ">
-          <ImageComponent src={url} layout="fill" className="object-cover" />
-        </Parallax>
+        <ImageComponent src={url} layout="fill" className="object-cover" />
       </div>
     </section>
   );

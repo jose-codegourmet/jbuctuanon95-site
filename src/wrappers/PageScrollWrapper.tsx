@@ -45,7 +45,7 @@ const PageScrollWrapper: FC<PageScrollWrapperProps> = (props) => {
       <motion.div
         ref={pageRef}
         style={{ y: spring }} // translateY of scroll container using negative scroll value
-        className="page-container fixed top-0 w-full left-0"
+        className="page-container z-20 fixed top-0 w-full left-0"
       >
         {children}
       </motion.div>
