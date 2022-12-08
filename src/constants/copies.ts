@@ -23,4 +23,48 @@ export const CLIENTS = [
     alt: 'Aged and Charred',
     url: 'https://www.agedandcharred.com/',
   },
+  {
+    alt: 'Flowershop by Palazzo Versace',
+    url: 'https://flowershop.palazzoversace.ae/',
+  },
+  {
+    alt: 'Fitcover AU & US',
+    url: 'https://fitcover.com/',
+  },
+  {
+    alt: 'Morning Builder Technologies',
+    url: '#',
+  },
+  {
+    alt: 'HelmX Smart Helmets',
+    url: '#',
+  },
+  {
+    alt: 'Netcare',
+    url: 'https://www.netcare.co.za/',
+  },
+  {
+    alt: 'Plus EV Holdings Inc',
+    url: 'https://www.plusevholdings.com/',
+  },
+  {
+    alt: 'CPUcoin',
+    url: 'https://cpucoin.io/',
+  },
+  {
+    alt: 'Equilibrium',
+    url: 'https://equilibrium.com/',
+  },
+  {
+    alt: 'Tweekit IO',
+    url: 'https://tweekit.io/',
+  },
+  {
+    alt: 'Connexio Cloud',
+    url: 'https://www.connexiocloud.com/',
+  },
+  {
+    alt: 'NGD Systems',
+    url: 'https://ngdsystems.com/',
+  },
 ];

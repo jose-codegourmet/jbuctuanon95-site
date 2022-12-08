@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   isDarkMode: true,
+  gltfAnimationState: 'visible',
 };
 
 const projectSlice = createSlice({
@@ -11,8 +12,11 @@ const projectSlice = createSlice({
     toggleDarkMode: (state, action) => {
       state.isDarkMode = action.payload;
     },
+    updateAnimationState: (state, action) => {
+      state.gltfAnimationState = action.payload;
+    },
   },
 });
 
-export const { toggleDarkMode } = projectSlice.actions;
+export const { toggleDarkMode, updateAnimationState } = projectSlice.actions;
 export const projectReducer = projectSlice.reducer;

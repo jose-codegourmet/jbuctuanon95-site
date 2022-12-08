@@ -2,7 +2,6 @@ import cn from 'classnames';
 import Link from 'next/link';
 import React from 'react';
 import type { FC } from 'react';
-import { Parallax } from 'react-scroll-parallax';
 import type { ImageComponentProps } from 'src/components/common/ImageComponent';
 import ImageComponent from 'src/components/common/ImageComponent';
 import Pills from 'src/components/common/Pills';
@@ -22,7 +21,7 @@ const CaseStudySection: FC<CaseStudySectionProps> = (props) => {
     props;
 
   const renderMedia = () => (
-    <Parallax speed={20} className="case-study-section__media ">
+    <div className="case-study-section__media ">
       <ImageComponent layout="fill" src={banner.url} alt={banner.title} {...bannerProps} />
       <div className="case-study-section__media__overlay">
         <Link passHref href={websiteLink}>
@@ -31,7 +30,7 @@ const CaseStudySection: FC<CaseStudySectionProps> = (props) => {
           </a>
         </Link>
       </div>
-    </Parallax>
+    </div>
   );
 
   return (

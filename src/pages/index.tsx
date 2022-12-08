@@ -1,9 +1,10 @@
 import type { FC } from 'react';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Parallax } from 'react-scroll-parallax';
+import AboutSection from 'src/components/sections/home/AboutSection';
 import CaseStudiesSection from 'src/components/sections/home/CaseStudiesSection';
 import ClientsSection from 'src/components/sections/home/ClientsSection';
+import HeroSection from 'src/components/sections/home/HeroSection';
 import { getAllCaseStudies } from 'src/lib/caseStudy/caseStudy';
 import type { getAllCaseStudiesReturnType } from 'src/lib/caseStudy/caseStudy';
 import type { RootState } from 'src/redux/reducers';
@@ -24,37 +25,8 @@ const Home: FC<HomeProps> = (props) => {
       }}
       mainClass="home-page"
     >
-      <section id="home" className="hero-section pt-[100px] sm:pt-0 items-start sm:items-center h-screen flex relative">
-        <div className="container flex items-start">
-          <div className="w-2/3 lg:w-1/2">
-            <h5 className="text-lg sm:text-xl md:text-2xl leading-none m-0 uppercase">I am a</h5>
-            <h1 className="m-0 text-3xl sm:text-4xl md:text-6xl leading-none h-auto">Fullstack Developer &</h1>
-            <h1 className="m-0 text-3xl sm:text-4xl md:text-6xl leading-none h-auto">Web Designer</h1>
-            <p className="text-base lg:text-2xl">
-              I am a front-end developer based in
-              <span className="text-primary">12.8797° N, 121.7740° E</span>. I've been consulting in graphic design,
-              branding, web design, and web development for many years. I enjoy coming up with solutions to problems and
-              pushing my creative boundaries. I adore model kits and sneakers as well.
-            </p>
-            <button className="button-primary">let's talk</button>
-          </div>
-        </div>
-      </section>
-      <Parallax speed={-20}>
-        <section id="about" className="about-section py-10 h-screen sm:mt-0 mt-[40%]">
-          <div className="container">
-            <div className="lg:w-2/4 w-full md:w-2/3 mx-auto">
-              <p className="text-lg md:text-4xl text-center">
-                I work as a front-end developer for Shopify and React in the Philippines. I combine intelligent strategy
-                and creativity to make projects for huge organizations and start-ups stand out. I am a full-stack
-                developer who also works part-time for myself. A startup that focuses on creating commercial solutions
-                for medium-sized to large businesses. I have also led and participated in many projects, from e-commerce
-                to business dashboards.
-              </p>
-            </div>
-          </div>
-        </section>
-      </Parallax>
+      <HeroSection />
+      <AboutSection />
       <ClientsSection isDarkMode={isDarkMode} />
       <CaseStudiesSection caseStudies={caseStudies} />
       <section id="lets-connect" className="companies-section py-10 relative ">
