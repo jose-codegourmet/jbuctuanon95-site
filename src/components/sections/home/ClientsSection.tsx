@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import type { FC } from 'react';
 import { useInView } from 'react-intersection-observer';
@@ -32,15 +33,21 @@ const ClientSection: FC<ClientSectionProps> = (props) => {
           <div className=" grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10">
             {[...CLIENTS].map((c, k) => (
               <div className="h-10 lg:h-[100px] relative w-full" key={k}>
-                <ImageComponent
-                  src={c.src}
-                  darkModeSrc={c.darkModeSrc}
-                  alt={c.alt}
-                  url={c.url}
-                  layout="fill"
-                  className="object-contain"
-                  isDarkMode={isDarkMode}
-                />
+                {c.src && c.darkModeSrc ? (
+                  <ImageComponent
+                    src={c.src}
+                    darkModeSrc={c.darkModeSrc}
+                    alt={c.alt}
+                    url={c.url}
+                    layout="fill"
+                    className="object-contain"
+                    isDarkMode={isDarkMode}
+                  />
+                ) : (
+                  <Link href={c.url}>
+                    <h4 className="text-neutral-900 dark:text-white text-center">{c.alt}</h4>
+                  </Link>
+                )}
               </div>
             ))}
           </div>

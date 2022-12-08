@@ -5,7 +5,8 @@ import { random } from 'maath';
 import React, { useRef, useState } from 'react';
 import * as THREE from 'three';
 
-const StarsMesh = ({ isDarkMode }) => {
+const StarsMesh = (props) => {
+  const { isDarkMode } = props;
   const ref = useRef();
   const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.5 }));
   useFrame((state, delta) => {
