@@ -54,7 +54,7 @@
     "slick-carousel": "^1.8.1",
     "smooth-scrollbar": "^8.8.1",
     "smooth-scrollbar-react": "^2.4.1",
-    "three": "^0.146.0",
+    "three": "^0.147.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
