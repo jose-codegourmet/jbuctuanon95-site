@@ -24,7 +24,7 @@ const Nav: FC<NavProps> = (props) => {
       <div className="nav__container">
         <div className="nav__logo">
           <Link passHref href="/">
-            <a className="w-[150px] sm:w-[200px] md:w-[350px] relative h-full">
+            <a className="relative h-full w-[150px] sm:w-[200px] md:w-[350px]">
               <ProjectLogo isDarkMode={isDarkMode} layout="fill" className="object-contain" />
             </a>
           </Link>

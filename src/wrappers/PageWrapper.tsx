@@ -52,7 +52,7 @@ const PageWrapper: FC<PageWrapperProps> = (props) => {
     >
       <div className="main-wrapper">
         {hasNav && <Nav isDarkMode={isDarkMode} />}
-        <div className="threeFiberObject--apollo-head threeFiberObject top-[100px] absolute right-0">
+        <div className="threeFiberObject--apollo-head threeFiberObject absolute top-[100px] right-0">
           <HomeScene isDarkMode={isDarkMode} currPage={asPath} />
         </div>
         <PageScrollWrapper>

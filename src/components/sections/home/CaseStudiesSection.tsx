@@ -14,7 +14,7 @@ const CaseStudiesSection: FC<CaseStudiesSectionProps> = (props) => {
   return (
     <section id="case-studies" className="case-studies-section py-10">
       <div className="container ">
-        <div className="w-full lg:w-1/3 m-auto flex flex-col justify-start items-center text-center mb-10">
+        <div className="m-auto mb-10 flex w-full flex-col items-center justify-start text-center lg:w-1/3">
           <h1 className="text-2xl lg:text-4xl">Case Studies</h1>
           <p className="text-lg lg:text-2xl">
             a selection of accomplishments from various clients, along with my solutions.
@@ -22,7 +22,7 @@ const CaseStudiesSection: FC<CaseStudiesSectionProps> = (props) => {
         </div>
       </div>
       <div className="container w-full">
-        <div className="w-full mx-auto grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+        <div className="mx-auto grid w-full gap-8 md:grid-cols-2 lg:grid-cols-3">
           {caseStudies.items.map((cs, k) => (
             <CaseStudyCard {...cs} key={k} bannerProps={{ className: 'object-cover' }} />
           ))}
