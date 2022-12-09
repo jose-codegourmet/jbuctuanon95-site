@@ -45,11 +45,11 @@ const PageScrollWrapper: FC<PageScrollWrapperProps> = (props) => {
       <motion.div
         ref={pageRef}
         style={{ y: spring }} // translateY of scroll container using negative scroll value
-        className="page-container z-20 fixed top-0 w-full left-0"
+        className="page-container fixed top-0 left-0 z-20 w-full"
       >
         {children}
       </motion.div>
-      <div className="page-proxy w-full relative" style={{ height: pageHeight }}></div>
+      <div className="page-proxy relative w-full" style={{ height: pageHeight }}></div>
     </>
   );
 };
