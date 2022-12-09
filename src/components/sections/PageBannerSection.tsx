@@ -10,9 +10,9 @@ const PageBannerSection: FC<PageBannerSectionProps> = (props) => {
   const { title, desc } = props;
 
   return (
-    <section id="home" className="page-banner-section min-h-[50vh] flex items-center">
-      <div className="items-center container flex w-full justify-center">
-        <div className=" w-full md:w-2/3 lg:w-1/3 flex flex-col justify-center items-center">
+    <section id="home" className="page-banner-section flex min-h-[50vh] items-center">
+      <div className="container flex w-full items-center justify-center">
+        <div className=" flex w-full flex-col items-center justify-center md:w-2/3 lg:w-1/3">
           <h1 className="text-4xl dark:text-white">{title}</h1>
           {desc && <p className="text-2xl">{desc}</p>}
         </div>
