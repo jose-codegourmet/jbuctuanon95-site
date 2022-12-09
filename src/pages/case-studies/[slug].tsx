@@ -35,7 +35,7 @@ const CaseStudyPage: FC<CaseStudyPageProps> = (props) => {
       <CaseStudyBanner {...caseStudyData} />
       <section className="problem">
         <div className="container flex justify-center">
-          <div className="w-full md:w-2/3 lg:w-1/2 flex-col flex">
+          <div className="flex w-full flex-col md:w-2/3 lg:w-1/2">
             <h2 className="text-2xl">Problem</h2>
             {problem && <RichText content={problem.json} />}
           </div>
@@ -50,7 +50,7 @@ const CaseStudyPage: FC<CaseStudyPageProps> = (props) => {
             }}
             renderer={(item, key) => (
               <div key={key}>
-                <div className="relative w-[50vw] h-[500px] ">
+                <div className="relative h-[500px] w-[50vw] ">
                   <ImageComponent src={item.url} alt={item.title} layout="fill" />
                 </div>
               </div>
@@ -58,14 +58,14 @@ const CaseStudyPage: FC<CaseStudyPageProps> = (props) => {
             items={samplesOrImagesCollection.items}
           />
         ) : (
-          <div className="w-full h-[500px] relative">
+          <div className="relative h-[500px] w-full">
             <ImageComponent src={samplesOrImagesCollection.items[0]?.url} layout="fill" />
           </div>
         )}
       </section>
       <section className="solution">
         <div className="container flex justify-center">
-          <div className="w-full md:w-2/3 lg:w-1/2 flex-col flex">
+          <div className="flex w-full flex-col md:w-2/3 lg:w-1/2">
             <h2 className="text-2xl">Solution</h2>
             {solution && <RichText content={solution.json} />}
           </div>
