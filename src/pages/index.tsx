@@ -29,8 +29,8 @@ const Home: FC<HomeProps> = (props) => {
       <AboutSection />
       <ClientsSection isDarkMode={isDarkMode} />
       <CaseStudiesSection caseStudies={caseStudies} />
-      <section id="lets-connect" className="companies-section py-10 relative ">
-        <div className="container flex w-full h-auto min-h-[500px] items-center">
+      <section id="lets-connect" className="companies-section relative py-10 ">
+        <div className="container flex h-auto min-h-[500px] w-full items-center">
           <div className="w-full lg:w-1/3">
             <h1 className="text-2xl lg:text-4xl">Let's connect</h1>
             <p className="text-lg lg:text-2xl">

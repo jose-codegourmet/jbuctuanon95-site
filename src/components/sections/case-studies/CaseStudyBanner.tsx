@@ -22,8 +22,8 @@ const CaseStudyBanner: FC<CaseStudySectionProps> = (props) => {
 
   return (
     <section id={`${slug}-banner`} className="w-full">
-      <div className="container py-[10rem] flex justify-between items-end lg:flex-row flex-col">
-        <div className="md:w-1/2 lg:w-1/3 w-full flex flex-col md:p-2 p-0">
+      <div className="container flex flex-col items-end justify-between py-[10rem] lg:flex-row">
+        <div className="flex w-full flex-col p-0 md:w-1/2 md:p-2 lg:w-1/3">
           <h1 className="text-5xl">{title}</h1>
           <Pills
             items={techStack.map((ts) => ({
@@ -49,13 +49,13 @@ const CaseStudyBanner: FC<CaseStudySectionProps> = (props) => {
           )}
         </div>
         {overview && (
-          <div className="w-full md:w-1/2 lg:w-1/3 flex flex-col md:p-2 p-0">
+          <div className="flex w-full flex-col p-0 md:w-1/2 md:p-2 lg:w-1/3">
             <h2 className="text-2xl">Overview</h2>
             <RichText content={overview.json} />
           </div>
         )}
       </div>
-      <div className="h-[600px] container w-full relative">
+      <div className="container relative h-[600px] w-full">
         <ImageComponent src={url} layout="fill" className="object-cover" />
       </div>
     </section>

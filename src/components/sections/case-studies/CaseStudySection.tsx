@@ -58,18 +58,18 @@ const CaseStudySection: FC<CaseStudySectionProps> = (props) => {
             )}
             {excerpt && <RichText content={excerpt.json} />}
             {dateCreated && (
-              <p className="text-base my-0">
+              <p className="my-0 text-base">
                 <span className="mr-[1ch] ">Project Date:</span> {dateCreated}
               </p>
             )}
             {client && (
-              <p className="text-base my-0">
+              <p className="my-0 text-base">
                 <span className="mr-[1ch] ">Client:</span>
                 {client}
               </p>
             )}
             {roles && (
-              <div className="w-full flex align-middle my-0">
+              <div className="my-0 flex w-full align-middle">
                 <p className="text-base">
                   <span className="mr-[1ch]">Roles:</span>
                   {roles.map((r, k) => (
@@ -82,8 +82,8 @@ const CaseStudySection: FC<CaseStudySectionProps> = (props) => {
               </div>
             )}
             {techStack && (
-              <div className="w-full flex align-middle flex-wrap">
-                <span className="text-base whitespace-nowrap mt-2 mr-2">Tech Stack: </span>
+              <div className="flex w-full flex-wrap align-middle">
+                <span className="mt-2 mr-2 whitespace-nowrap text-base">Tech Stack: </span>
                 <div className="-ml-2 mt-2">
                   <Pills
                     items={techStack.map((ts) => ({
