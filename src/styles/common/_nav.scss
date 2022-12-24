@@ -119,6 +119,7 @@
 .nav-menu {
     @apply my-0
         flex
+        w-full
         list-none
         flex-col
         items-start
@@ -129,18 +130,80 @@
     &__item {
         @apply relative
             w-full
-            text-7xl
-            font-light
+            cursor-pointer
+            text-5xl
+            font-semibold
             leading-relaxed;
 
-        .count {
+        .title {
+            @apply block
+                uppercase
+                duration-300
+                ease-out;
+        }
+
+        .count-container {
             @apply absolute
+                bottom-2
+                right-0
+                h-[2rem]
+                w-[2rem]
+                overflow-hidden;
+
+            .count {
+                @apply absolute
                 top-0
-                right-full
+                left-0
+                w-full
+                text-center
                 text-base
-                font-thin;
+                font-normal
+                duration-300
+                ease-out;
+            }
+        }
+
+        // .nav-menu__item__line
+        &__line {
+            @apply relative
+                h-[2px]
+                w-full
+                bg-neutral-400
+                dark:bg-neutral-600;
+            &:before {
+                content: '';
+                @apply absolute
+                    inset-0
+                    h-full
+                    w-full
+                    origin-left
+                    scale-x-0
+                    bg-neutral-700
+                    duration-300
+                    ease-out
+                    dark:bg-neutral-100;
+            }
+        }
+
+        &:hover {
+            .title {
+                @apply translate-x-10;
+            }
+            .count {
+                @apply translate-y-[-2rem];
+            }
+            .nav-menu__item__line:before {
+                @apply scale-x-100;
+            }
         }
     }
+}
+
+[data-mode='dark'] .nav-menu .count {
+    text-shadow: 0 2em 0 #fff;
+}
+.nav-menu .count {
+    text-shadow: 0 2em 0 #000;
 }
 
 .nav-socials {

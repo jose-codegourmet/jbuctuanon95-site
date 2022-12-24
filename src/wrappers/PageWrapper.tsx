@@ -5,7 +5,7 @@ import type { FC, ReactElement, ReactNode } from 'react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Nav from 'src/components/common/Nav';
-import NavFullPage from 'src/components/common/NavFullPage';
+import NavFullPage from 'src/components/common/NavFullPage/NavFullPage';
 import HomeScene from 'src/components/threedee/HomeScene';
 import type { RootState } from 'src/redux/reducers';
 import { updateAnimationState } from 'src/redux/reducers/project';
