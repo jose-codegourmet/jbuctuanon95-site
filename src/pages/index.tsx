@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import React from 'react';
 import { useSelector } from 'react-redux';
+import CTASection from 'src/components/sections/common/CTASection';
 import AboutSection from 'src/components/sections/home/AboutSection';
 import CaseStudiesSection from 'src/components/sections/home/CaseStudiesSection';
 import ClientsSection from 'src/components/sections/home/ClientsSection';
@@ -24,23 +25,13 @@ const Home: FC<HomeProps> = (props) => {
         title: 'home',
       }}
       mainClass="home-page"
+      isDarkMode={isDarkMode}
     >
       <HeroSection />
       <AboutSection />
       <ClientsSection isDarkMode={isDarkMode} />
       <CaseStudiesSection caseStudies={caseStudies} />
-      <section id="lets-connect" className="companies-section relative py-10 ">
-        <div className="container flex h-auto min-h-[500px] w-full items-center">
-          <div className="w-full lg:w-1/3">
-            <h1 className="text-2xl lg:text-4xl">Let's connect</h1>
-            <p className="text-lg lg:text-2xl">
-              My mailbox is always open, even though I'm not seeking for any new possibilities right now. I will do my
-              best to get back to you whether you have a question or are just looking to say hello!
-            </p>
-            <button className="button-primary">Leave a message</button>
-          </div>
-        </div>
-      </section>
+      <CTASection />
     </MainWrapper>
   );
 };

@@ -1,9 +1,14 @@
 .nav {
-    @apply fixed top-0 left-0 z-50 w-full dark:text-white;
+    @apply fixed top-0 left-0 z-50 w-full  dark:text-white;
 
     // .nav__container
     &__container {
-        @apply container mx-auto flex h-[70px] flex-nowrap items-stretch;
+        @apply mx-auto
+            flex
+            h-nav
+            flex-nowrap
+            items-stretch
+            px-2;
     }
 
     // .nav__logo
@@ -11,8 +16,18 @@
         @apply flex py-2;
     }
 
+    // .nav__dd-toggle
+    &__dd-toggle {
+        @apply ml-auto
+            bg-transparent
+            text-base
+            uppercase
+            text-inherit;
+    }
+
     // .nav__menu
     &__menu {
+        @apply text-base;
     }
 
     // .nav__toggle-dark-mode
@@ -59,43 +74,99 @@
     }
 }
 
+.nav-full-page {
+    @apply fixed
+        inset-0
+        z-[40]
+        flex
+        w-full
+        items-start
+        justify-center
+        bg-neutral-200
+        dark:bg-neutral-800;
+
+    // .nav-full-page__menu
+    &__menu {
+        @apply flex
+            h-screen
+            w-full
+            items-center
+            justify-start
+            overflow-y-auto
+            overflow-x-hidden
+            p-10
+            pt-nav
+        md:w-2/3;
+    }
+
+    // .nav-full-page__socials
+    &__socials {
+        @apply relative
+            h-screen
+            w-full
+            p-10
+            pt-nav
+            text-white
+            md:w-1/3;
+    }
+
+    // .nav-full-page__cta
+    &__cta {
+        @apply w-full;
+    }
+}
+
 .nav-menu {
-    list-style-type: none;
-    @apply my-0 ml-auto mr-0 hidden items-stretch md:flex;
+    @apply my-0
+        flex
+        list-none
+        flex-col
+        items-start
+        justify-start
+        pl-0;
 
-    .nav-menu__item {
-        a {
-            @apply relative
-                flex
-                h-full
-                items-center
-                px-8
-                hover:bg-neutral-400
-                hover:bg-opacity-10
-                dark:hover:bg-opacity-0;
-            &:before {
-                content: '';
-                @apply absolute
-                    top-full
-                    left-0
-                    block
-                    h-1
-                    w-full
-                    origin-left
-                    scale-x-0
-                    bg-gradient-to-r
-                    duration-300
-                    ease-out
-                    dark:from-indigo-500
-                    dark:via-purple-500
-                    dark:to-pink-500;
-            }
+    // .nav-menu__item
+    &__item {
+        @apply relative
+            w-full
+            text-7xl
+            font-light
+            leading-relaxed;
 
-            &:hover {
-                &:before {
-                    @apply scale-x-100;
-                }
-            }
+        .count {
+            @apply absolute
+                top-0
+                right-full
+                text-base
+                font-thin;
+        }
+    }
+}
+
+.nav-socials {
+    @apply my-0
+        flex
+        list-none
+        flex-col
+        items-start
+        justify-start
+        pl-0;
+
+    // .nav-socials__item
+    &__item {
+        @apply relative
+            w-full
+            text-2xl
+            font-light
+            uppercase
+            leading-loose;
+
+        .count {
+            @apply absolute
+                top-0
+                right-full
+                text-base
+                font-thin;
         }
     }
 }

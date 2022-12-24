@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { useGLTF } from '@react-three/drei';
-import { useThree } from '@react-three/fiber';
+import { useFrame, useThree } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
 import React, { useRef } from 'react';
 import * as THREE from 'three';
@@ -18,11 +18,11 @@ const ApolloGLTF = ({ animationState = 'visible' }) => {
   const variants = {
     hidden: {
       x: apolloPosX + 3,
-      rotateY: 10,
+      rotateY: 4,
     },
     visible: {
       x: apolloPosX,
-      rotateY: 0,
+      rotateY: apolloPosY,
     },
     out: {
       x: 4,
@@ -46,7 +46,6 @@ const ApolloGLTF = ({ animationState = 'visible' }) => {
       position={[apolloPosX, apolloPosY, apolloPosZ]}
       initial={animationState === 'visible' ? 'hidden' : 'visible'}
       animate={animationState}
-      exit="out"
       variants={variants}
       transition={{
         x: {

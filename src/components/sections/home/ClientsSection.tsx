@@ -1,27 +1,20 @@
 import Link from 'next/link';
 import React from 'react';
 import type { FC } from 'react';
-import { useInView } from 'react-intersection-observer';
-import { useDispatch } from 'react-redux';
+import AnimationStateTrigger from 'src/components/common/AnimationStateTrigger';
 import ImageComponent from 'src/components/common/ImageComponent';
 import { CLIENTS } from 'src/constants/copies';
-import { updateAnimationState } from 'src/redux/reducers/project';
 import type { ProjectStateTypes } from 'src/types/project';
 
 export type ClientSectionProps = ProjectStateTypes;
 
 const ClientSection: FC<ClientSectionProps> = (props) => {
   const { isDarkMode } = props;
-  const { ref, inView } = useInView();
-  const dispatch = useDispatch();
-
-  if (inView) {
-    dispatch(updateAnimationState('hidden'));
-  }
 
   return (
-    <section id="clients" className="clients-section py-10" ref={ref}>
+    <section id="clients" className="clients-section flex h-screen items-center justify-center py-10">
       <div className="container flex w-full flex-wrap items-start">
+        <AnimationStateTrigger animation="hidden" />
         <div className="mb-4 w-full lg:mb-0 lg:w-1/3">
           <h1 className="text-center text-2xl sm:text-left lg:text-4xl">Clients I work with</h1>
           <p className="text-base lg:text-2xl">
