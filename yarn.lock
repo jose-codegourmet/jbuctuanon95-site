@@ -4625,12 +4625,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/three@npm:^0.144.0":
-  version: 0.144.0
-  resolution: "@types/three@npm:0.144.0"
+"@types/three@npm:^0.148.0":
+  version: 0.148.0
+  resolution: "@types/three@npm:0.148.0"
   dependencies:
     "@types/webxr": "*"
-  checksum: 7ce69e1a48ba6d19dc9efb78c5c67a3e66c036f240386dd700eda7a5964e44550066ac45bc0997bd4fe7be446edae356313d992361c18415191468dfdbfb454d
+  checksum: c5747a8cc353c8560196052f1a035c7d641e4a953ac63c1c8d9d91c5489da2dbe8b9c4b70670eef891f8597e9ae882c450e6270abe49e807920644abdea08ddb
   languageName: node
   linkType: hard
 
@@ -11722,7 +11722,7 @@ __metadata:
     "@types/react": ^18.0.26
     "@types/react-slick": ^0.23.10
     "@types/recharts": ^1.8.24
-    "@types/three": ^0.144.0
+    "@types/three": ^0.148.0
     "@typescript-eslint/eslint-plugin": ^5.45.1
     "@typescript-eslint/parser": ^5.45.1
     autoprefixer: ^10.4.13
@@ -11768,7 +11768,7 @@ __metadata:
     smooth-scrollbar: ^8.8.1
     smooth-scrollbar-react: ^2.4.1
     tailwindcss: ^3.2.4
-    three: ^0.146.0
+    three: ^0.148.0
     typescript: ^4.9.4
     yup: ^0.32.11
   languageName: unknown
@@ -17178,10 +17178,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"three@npm:^0.146.0":
-  version: 0.146.0
-  resolution: "three@npm:0.146.0"
-  checksum: c6eb2005d97c599de7f4eccf73c4b1e8731c353ca3e7b9bf9d3bc2b52a8e288c59c06c148fd93df16df323b28938947227a37e07cc6fbe04aa8f8725e49caa8a
+"three@npm:^0.148.0":
+  version: 0.148.0
+  resolution: "three@npm:0.148.0"
+  checksum: 3f6359585c006c6f78b2fc1adeb90559d9b7cd6daf5cf916e81494ff228f4a9beffe37136bd8d5b0afbf377ac070b70624245bec2e9ee557035e2c485ce05197
   languageName: node
   linkType: hard
 
