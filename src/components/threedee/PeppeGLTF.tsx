@@ -7,7 +7,7 @@ import * as THREE from 'three';
 
 const PeppeGLTF = ({ animationState = 'visible' }) => {
   const peppeMesh: any = useRef();
-  const { scene: PeppeScene } = useGLTF('./3d/pepe/scene.gltf');
+  const { scene: PeppeScene } = useGLTF('/3d/pepe/scene.gltf');
   const { width } = useThree((state) => state.viewport);
   const isDesktop = width >= 6;
   const peppePosX = isDesktop ? -3 : -1.5;

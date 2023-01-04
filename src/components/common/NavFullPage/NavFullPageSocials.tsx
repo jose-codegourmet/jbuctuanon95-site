@@ -2,12 +2,10 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import React from 'react';
 import type { FC } from 'react';
-import { useDispatch } from 'react-redux';
 import { WEBSITE_SOCIALS } from 'src/constants/project';
 import type { ProjectLink } from 'src/types/project';
 
 const NavFullSocials: FC<{ show: boolean }> = ({ show }) => {
-  const dispatch = useDispatch();
   const router = useRouter();
 
   const ulVariants = {
@@ -68,7 +66,6 @@ const NavFullSocials: FC<{ show: boolean }> = ({ show }) => {
 
   const handleClickMenu = ({ link }: ProjectLink) => {
     router.push(link);
-    dispatch(toggleDropDownMenu(false));
   };
 
   return (

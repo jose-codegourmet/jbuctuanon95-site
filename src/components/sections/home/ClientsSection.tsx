@@ -18,8 +18,11 @@ const ClientSection: FC<ClientSectionProps> = (props) => {
         <div className="mb-4 w-full lg:mb-0 lg:w-1/3">
           <h1 className="text-center text-2xl sm:text-left lg:text-4xl">Clients I work with</h1>
           <p className="text-base lg:text-2xl">
-            After six years of practice. I've had the pleasure of working for both fantastic start-ups and significant
-            corporations. Both of us have benefited from their assistance in helping me advance as a developer.
+            Over the past six years, I have gained valuable experience working with both small start-ups and large
+            corporations, which have helped me grow and advance as a developer. I have learned to be adaptable and
+            flexible, as well as how to work with limited resources and tight deadlines. I have also gained experience
+            in more specialized areas and worked on larger, more complex projects. Both types of experiences have been
+            valuable in helping me develop my skills as a developer.
           </p>
         </div>
         <div className="w-full px-8 lg:w-2/3">

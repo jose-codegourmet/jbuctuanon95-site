@@ -7,7 +7,7 @@ import * as THREE from 'three';
 
 const ApolloGLTF = ({ animationState = 'visible' }) => {
   const apolloMesh: any = useRef();
-  const { scene: ApolloScene } = useGLTF('./3d/apollohead/scene.gltf');
+  const { scene: ApolloScene } = useGLTF('/3d/apollohead/scene.gltf');
   const { width } = useThree((state) => state.viewport);
 
   const isDesktop = width >= 6;
