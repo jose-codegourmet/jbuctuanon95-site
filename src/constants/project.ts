@@ -1,6 +1,13 @@
+import type { ProjectLink } from 'src/types/project';
+
 export const BASE_WEBSITE_NAME = 'Jose Adrian Buctuanon';
 
-export const WEBSITE_NAV = [
+export const WEBSITE_NAV: ProjectLink[] = [
+  {
+    id: 'home',
+    label: 'Home',
+    link: '/',
+  },
   {
     id: 'about',
     label: 'About',
@@ -16,5 +23,28 @@ export const WEBSITE_NAV = [
     label: 'Codegourmet.io',
     link: 'https://www.codegourmet.io',
     external: true,
+  },
+];
+
+export const WEBSITE_SOCIALS: ProjectLink[] = [
+  {
+    id: 'facebook',
+    label: 'Facebook',
+    link: 'https://facebook.com',
+  },
+  {
+    id: 'instagram',
+    label: 'Instagram',
+    link: 'https://instagram.com',
+  },
+  {
+    id: 'github',
+    label: 'Github',
+    link: 'https://github.com/jose-codegourmet',
+  },
+  {
+    id: 'linked-in',
+    label: 'Linked In',
+    link: 'https://www.linkedin.com/in/jose-adrian-buctuanon/',
   },
 ];

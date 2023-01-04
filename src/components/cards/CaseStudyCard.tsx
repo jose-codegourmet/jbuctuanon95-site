@@ -54,10 +54,10 @@ const CaseStudyCard: FC<CaseStudyCardProps> = (props) => {
             <p className="text-base">
               <span className="mr-[1ch]">Roles:</span>
               {roles.map((r, k) => (
-                <>
-                  <span key={k}>{r}</span>
+                <span key={k}>
+                  <span>{r}</span>
                   {k !== roles.length - 1 ? ',' : ''}
-                </>
+                </span>
               ))}
             </p>
           </div>

@@ -6,9 +6,9 @@ import 'src/styles/globals.scss';
 import PageWrapper from 'src/wrappers/PageWrapper';
 
 // optional - if you want to mock your api calls without having the api active
-if (process.env.NODE_ENV === 'development') {
-  require('../mocks/msw.ts');
-}
+// if (process.env.NODE_ENV === 'development') {
+//   require('../mocks/msw.ts');
+// }
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (

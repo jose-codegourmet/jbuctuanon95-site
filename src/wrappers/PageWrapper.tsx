@@ -1,10 +1,11 @@
 import PageScrollWrapper from './PageScrollWrapper';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import type { FC, ReactElement, ReactNode } from 'react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Nav from 'src/components/common/Nav';
+import NavFullPage from 'src/components/common/NavFullPage/NavFullPage';
 import HomeScene from 'src/components/threedee/HomeScene';
 import type { RootState } from 'src/redux/reducers';
 import { updateAnimationState } from 'src/redux/reducers/project';
@@ -17,7 +18,8 @@ export interface PageWrapperProps extends ProjectStateTypes {
 
 const PageWrapper: FC<PageWrapperProps> = (props) => {
   const { children, hasNav = true } = props;
-  const { isDarkMode } = useSelector((state: RootState) => state.project);
+  const { isDarkMode, showDDMenu, gltfAnimationState } = useSelector((state: RootState) => state.project);
+
   const dispatch = useDispatch();
   const { asPath } = useRouter();
 
@@ -51,16 +53,20 @@ const PageWrapper: FC<PageWrapperProps> = (props) => {
       })}
     >
       <div className="main-wrapper">
-        {hasNav && <Nav isDarkMode={isDarkMode} />}
+        {hasNav && <Nav isDarkMode={isDarkMode} isShowDDMenu={showDDMenu} />}
+        <NavFullPage show={showDDMenu} />
         <div className="threeFiberObject--apollo-head threeFiberObject absolute top-[100px] right-0">
-          <HomeScene isDarkMode={isDarkMode} currPage={asPath} />
+          <HomeScene
+            isDarkMode={isDarkMode}
+            currPage={asPath}
+            isStopAnimating={showDDMenu}
+            gltfAnimationState={gltfAnimationState}
+          />
         </div>
         <PageScrollWrapper>
-          <AnimatePresence exitBeforeEnter>
-            <motion.div key={asPath} variants={variants} animate="in" initial="out" exit="out">
-              {children}
-            </motion.div>
-          </AnimatePresence>
+          <motion.div key={asPath} variants={variants} animate="in" initial="out" exit="out">
+            {children}
+          </motion.div>
         </PageScrollWrapper>
       </div>
     </div>

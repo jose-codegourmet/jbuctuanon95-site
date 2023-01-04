@@ -43,10 +43,16 @@ module.exports = {
     }),
     extend: {
       fontFamily: {
-        sans: ['nimbus-sans-extended', ...defaultTheme.fontFamily.sans],
+        sans: ['Jab HelvNeueLT', ...defaultTheme.fontFamily.sans],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
+      height: {
+        nav: 'var(--nav-height)',
+      },
+      padding: {
+        nav: 'var(--nav-height)',
       },
     },
   },
