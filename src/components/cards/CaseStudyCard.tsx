@@ -1,6 +1,5 @@
 import type { ImageComponentProps } from '../common/ImageComponent';
 import ImageComponent from '../common/ImageComponent';
-import Pills from '../common/Pills';
 import RichText from '../common/RichText';
 import Link from 'next/link';
 import React from 'react';
@@ -15,7 +14,7 @@ export interface CaseStudyCardProps extends ProjectStateTypes, CASE_STUDY_RESULT
 }
 
 const CaseStudyCard: FC<CaseStudyCardProps> = (props) => {
-  const { bannerProps, excerpt, title, slug, banner, techStack, roles, dateCreated, client, websiteLink } = props;
+  const { bannerProps, excerpt, title, slug, banner, roles, client, websiteLink } = props;
 
   return (
     <div className="card">
@@ -38,42 +37,28 @@ const CaseStudyCard: FC<CaseStudyCardProps> = (props) => {
           </Link>
         )}
         {excerpt && <RichText content={excerpt.json} />}
-        {dateCreated && (
-          <p className="my-0 text-base">
-            <span className="mr-[1ch] ">Project Date:</span> {dateCreated}
-          </p>
-        )}
-        {client && (
-          <p className="my-0 text-base">
-            <span className="mr-[1ch] ">Client:</span>
-            {client}
-          </p>
-        )}
-        {roles && (
-          <div className="my-0 flex w-full align-middle">
-            <p className="text-base">
-              <span className="mr-[1ch]">Roles:</span>
-              {roles.map((r, k) => (
-                <span key={k}>
-                  <span>{r}</span>
-                  {k !== roles.length - 1 ? ',' : ''}
-                </span>
-              ))}
-            </p>
-          </div>
-        )}
-        {techStack && (
-          <div className="flex w-full flex-wrap align-middle">
-            <span className="mt-2 mr-2 whitespace-nowrap text-base">Tech Stack: </span>
-            <div className="-ml-2 mt-2">
-              <Pills
-                items={techStack.map((ts) => ({
-                  label: ts,
-                }))}
-              />
+        <div className="border-t-solid flex w-full border-t-2 border-t-slate-100 text-sm">
+          {client && (
+            <div className="flex-inline mx-2">
+              <span className="block">Client:</span>
+              <span className="block">{client}</span>
             </div>
-          </div>
-        )}
+          )}
+          {roles && (
+            <div className="flex-inline border-t-solid mx-2 border-l-2 border-l-slate-100">
+              <span className="block">Roles:</span>
+              <span className="block">
+                {roles.map((r, k) => (
+                  <span key={k}>
+                    <span>{r}</span>
+                    {k !== roles.length - 1 ? ',' : ''}
+                  </span>
+                ))}
+              </span>
+            </div>
+          )}
+        </div>
+        <Link href={`/case-studies/${slug}`}>Learn More</Link>
       </div>
     </div>
   );

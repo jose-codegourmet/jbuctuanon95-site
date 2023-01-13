@@ -7,4 +7,10 @@
     p {
         margin-block-start: 0.25rem;
     }
+
+    .text-base {
+        @apply font-thin
+            tracking-normal
+            sm:tracking-widest;
+    }
 }
