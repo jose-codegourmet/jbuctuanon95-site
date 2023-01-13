@@ -29,7 +29,7 @@ const Home: FC<HomeProps> = (props) => {
     >
       <HeroSection />
       <AboutSection />
-      <ClientsSection isDarkMode={isDarkMode} />
+      <ClientsSection />
       <CaseStudiesSection caseStudies={caseStudies} />
       <CTASection />
     </MainWrapper>
