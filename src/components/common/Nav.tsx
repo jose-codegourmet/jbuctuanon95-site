@@ -32,7 +32,7 @@ const Nav: FC<NavProps> = (props) => {
     <nav className="nav">
       <div className="nav__container">
         <div className="nav__logo">
-          <div onClick={handleNavToHome} className="relative h-full w-[150px] sm:w-[200px] md:w-[350px]">
+          <div onClick={handleNavToHome} className="relative h-full w-[150px] cursor-pointer sm:w-[200px] md:w-[350px]">
             <ProjectLogo isDarkMode={isDarkMode} layout="fill" className="object-contain object-left" />
           </div>
         </div>

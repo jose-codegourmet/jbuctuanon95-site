@@ -15,11 +15,11 @@ const HeroSection: FC = () => {
       className="hero-section relative flex h-screen items-start pt-[100px] sm:items-end sm:pt-0 sm:pb-10"
     >
       <div className="container flex items-start">
-        <div className="w-2/3 lg:w-2/3">
-          <h1 className="m-0 mb-10 h-auto text-3xl leading-snug sm:text-4xl md:text-7xl">
+        <div className="w-full lg:w-2/3">
+          <h1 className="m-0 mb-10 h-auto text-3xl leading-snug sm:text-4xl md:text-6xl">
             Expert in developing and designing websites that drive business growth
           </h1>
-          <p className="text-base lg:text-2xl">
+          <p className="w-2/3 text-base lg:text-2xl">
             I'm Jose, a fullstack developer with {yearDifference} years of experience. I excel in frontend and backend
             development, especially with ReactJS and Shopify. I love using my skills to help clients build successful
             websites.

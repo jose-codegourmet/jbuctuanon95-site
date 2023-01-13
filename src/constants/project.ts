@@ -28,11 +28,6 @@ export const WEBSITE_NAV: ProjectLink[] = [
 
 export const WEBSITE_SOCIALS: ProjectLink[] = [
   {
-    id: 'facebook',
-    label: 'Facebook',
-    link: 'https://facebook.com',
-  },
-  {
     id: 'instagram',
     label: 'Instagram',
     link: 'https://instagram.com',
@@ -48,3 +43,5 @@ export const WEBSITE_SOCIALS: ProjectLink[] = [
     link: 'https://www.linkedin.com/in/jose-adrian-buctuanon/',
   },
 ];
+
+export const MOBILE_BREAKPOINT = 768;

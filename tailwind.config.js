@@ -43,7 +43,7 @@ module.exports = {
     }),
     extend: {
       fontFamily: {
-        sans: ['Jab HelvNeueLT', ...defaultTheme.fontFamily.sans],
+        sans: ['Jab HelvNeue', ...defaultTheme.fontFamily.sans],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
