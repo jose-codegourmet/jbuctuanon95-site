@@ -39,7 +39,7 @@ const HomeSceneCanvas = (props) => {
     <Canvas shadows={true}>
       <Suspense fallback={null}>
         {isStopAnimating && <StopAnimation />}
-        <Stats />
+        {process.env.NODE_ENV === 'development' && <Stats />}
         <ambientLight intensity={0.5} color={isDarkMode ? 'blue' : 'pink'} />
         {inView && <ApolloGLTF animationState={gltfAnimationState} />}
         {inView && <PeppeGLTF animationState={gltfAnimationState} />}
