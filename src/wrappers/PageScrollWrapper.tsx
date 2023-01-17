@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 import type { FC, MutableRefObject, ReactElement, ReactNode } from 'react';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
@@ -13,7 +14,7 @@ const PageScrollWrapper: FC<PageScrollWrapperProps> = (props) => {
   const [isMobile, setIsMobile] = useState(false);
 
   // scroll container
-  const pageRef = useRef() as MutableRefObject<HTMLDivElement>;
+  const pageHeightRef = useRef() as MutableRefObject<HTMLDivElement>;
 
   // page scrollable height based on content length
   const [pageHeight, setPageHeight] = useState(0);
@@ -24,7 +25,7 @@ const PageScrollWrapper: FC<PageScrollWrapperProps> = (props) => {
 
   // update scrollable height when browser is resizing
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const resizePageHeight = useCallback((entries: any) => {
+  const resizePageWH = useCallback((entries: any) => {
     for (const entry of entries) {
       setPageHeight(entry.contentRect.height);
       checkIfMobile(entry.contentRect.width);
@@ -33,14 +34,14 @@ const PageScrollWrapper: FC<PageScrollWrapperProps> = (props) => {
 
   // observe when browser is resizing
   useEffect(() => {
-    const resizeObserver = new ResizeObserver((entries) => resizePageHeight(entries));
+    const heightResizeObserver = new ResizeObserver((entries) => resizePageWH(entries));
 
-    if (pageRef?.current) {
-      resizeObserver.observe(pageRef.current);
+    if (pageHeightRef?.current) {
+      heightResizeObserver.observe(pageHeightRef.current);
     }
 
-    return () => resizeObserver.disconnect();
-  }, [pageRef, resizePageHeight]);
+    return () => heightResizeObserver.disconnect();
+  }, [pageHeightRef, resizePageWH]);
 
   const { scrollY } = useScroll();
   const transform = useTransform(scrollY, [0, pageHeight], [0, -pageHeight]);
@@ -48,21 +49,18 @@ const PageScrollWrapper: FC<PageScrollWrapperProps> = (props) => {
   const spring = useSpring(transform, physics); // apply easing to the negative scroll value
 
   return (
-    <div ref={pageRef} className="w-full">
-      {isMobile ? (
-        children
-      ) : (
-        <>
-          <motion.div
-            style={{ y: spring }} // translateY of scroll container using negative scroll value
-            className="page-container fixed top-0 left-0 z-20 w-full"
-          >
-            {children}
-          </motion.div>
-          <div className="page-proxy relative w-full" style={{ height: pageHeight }}></div>
-        </>
-      )}
-    </div>
+    <>
+      <motion.div
+        ref={pageHeightRef}
+        className={cn('page-container  w-full', {
+          'fixed top-0 left-0 z-20': !isMobile,
+        })}
+        style={{ y: !isMobile ? spring : 0 }} // translateY of scroll container using negative scroll value
+      >
+        {children}
+      </motion.div>
+      {!isMobile && <div className="page-proxy relative w-full" style={{ height: pageHeight }}></div>}
+    </>
   );
 };
 
