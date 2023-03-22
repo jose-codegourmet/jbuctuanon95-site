@@ -6,7 +6,10 @@ import { CLIENTS } from 'src/constants/clients';
 
 const ClientSection: FC = () => {
   return (
-    <section id="clients" className="clients-section flex h-screen flex-col items-center justify-center py-10">
+    <section
+      id="clients"
+      className="clients-section flex h-auto min-h-screen flex-col items-center justify-center py-10"
+    >
       <div className="container flex w-full flex-wrap items-start justify-center">
         <AnimationStateTrigger animation="hidden" />
         <div className="w-full text-center lg:w-3/4">

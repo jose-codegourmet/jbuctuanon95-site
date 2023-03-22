@@ -2,7 +2,7 @@ import { useInView } from 'framer-motion';
 import React, { useEffect, useRef } from 'react';
 import type { FC } from 'react';
 import { useDispatch } from 'react-redux';
-import { updateAnimationState } from 'src/redux/reducers/project';
+import { updateAnimationState } from 'src/redux/reducers/gltfAnimations';
 
 export interface AnimationStateTriggerProps {
   animation: string;
@@ -25,7 +25,7 @@ const AnimationStateTrigger: FC<AnimationStateTriggerProps> = ({ animation }) =>
   const ref = useRef<HTMLDivElement | null>(null);
 
   return (
-    <div className="block w-full opacity-0" ref={ref}>
+    <div className="block w-full " ref={ref}>
       <WorkAround passedRef={ref} animation={animation} />
     </div>
   );

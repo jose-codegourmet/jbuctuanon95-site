@@ -10,22 +10,19 @@ const HeroSection: FC = () => {
   const yearDifference = differenceInCalendarYears(endDate, startDate);
 
   return (
-    <section
-      id="home"
-      className="hero-section relative flex h-screen items-start pt-[100px] sm:items-end sm:pt-0 sm:pb-10"
-    >
-      <div className="container flex items-start">
-        <div className="w-full lg:w-2/3">
-          <h1 className="m-0 mb-10 h-auto text-3xl leading-snug sm:text-4xl md:text-6xl">
+    <section id="home" className="hero-section ">
+      <div className="container flex items-center">
+        <div className="w-full">
+          <AnimationStateTrigger animation="visible" />
+          <h1 className="hero-section__title">
             Expert in developing and designing websites that drive business growth
           </h1>
-          <p className="w-2/3 text-base lg:text-2xl">
+          <p className="mx-auto text-base lg:text-4xl">
             I'm Jose, a fullstack developer with {yearDifference} years of experience. I excel in frontend and backend
             development, especially with ReactJS and Shopify. I love using my skills to help clients build successful
             websites.
           </p>
-          <button className="button-primary">let's talk</button>
-          <AnimationStateTrigger animation="visible" />
+          {/* <button className="button-primary">let's talk</button> */}
         </div>
       </div>
     </section>

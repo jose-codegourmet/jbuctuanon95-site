@@ -1,5 +1,13 @@
 .hero-section {
     z-index: 1;
+    @apply relative
+        flex
+        h-screen
+        items-start
+        pt-[100px]
+        sm:items-center
+        sm:pt-0
+        sm:pb-10;
 
     &:before {
         content: '';
@@ -14,6 +22,17 @@
             dark:flex
             dark:opacity-50;
         z-index: 1;
+    }
+
+    // .hero-section__title
+    &__title {
+        @apply m-0
+            mb-10
+            h-auto
+            text-4xl
+            leading-snug
+            sm:text-4xl
+            md:text-9xl;
     }
 
     .container {

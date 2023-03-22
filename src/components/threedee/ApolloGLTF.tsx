@@ -2,12 +2,14 @@
 import { useGLTF } from '@react-three/drei';
 import { useFrame, useThree } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
-import React, { useRef } from 'react';
+import React, { Suspense, useRef } from 'react';
 import * as THREE from 'three';
 
 const ApolloGLTF = ({ animationState = 'visible' }) => {
   const apolloMesh: any = useRef();
-  const { scene: ApolloScene } = useGLTF('/3d/apollohead/scene.gltf');
+  const gltfObj = useGLTF('/3d/apollohead/scene.gltf');
+  const { scene: ApolloScene } = gltfObj;
+
   const { width } = useThree((state) => state.viewport);
 
   const isDesktop = width >= 6;
@@ -17,11 +19,12 @@ const ApolloGLTF = ({ animationState = 'visible' }) => {
 
   const variants = {
     hidden: {
-      x: apolloPosX + 3,
-      rotateY: 4,
+      x: apolloPosX - 4,
     },
     visible: {
       x: apolloPosX,
+    },
+    'move-to-left': {
       rotateY: apolloPosY,
     },
     out: {
@@ -39,23 +42,25 @@ const ApolloGLTF = ({ animationState = 'visible' }) => {
   };
 
   return (
-    <motion.primitive
-      ref={apolloMesh}
-      object={ApolloScene}
-      scale={[1, 1, 1]}
-      position={[apolloPosX, apolloPosY, apolloPosZ]}
-      initial={animationState === 'visible' ? 'hidden' : 'visible'}
-      animate={animationState}
-      variants={variants}
-      transition={{
-        x: {
-          duration: 2,
-        },
-        rotateY: {
-          duration: 3,
-        },
-      }}
-    />
+    <Suspense>
+      <motion.primitive
+        ref={apolloMesh}
+        object={ApolloScene}
+        scale={[1, 1, 1]}
+        position={[apolloPosX, apolloPosY, apolloPosZ]}
+        initial={animationState === 'visible' ? 'hidden' : 'visible'}
+        animate={animationState}
+        variants={variants}
+        transition={{
+          x: {
+            duration: 2,
+          },
+          rotateY: {
+            duration: 3,
+          },
+        }}
+      />
+    </Suspense>
   );
 };
 

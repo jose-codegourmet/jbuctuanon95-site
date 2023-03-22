@@ -3,6 +3,7 @@ export interface ProjectStateTypes {
   isLoading?: boolean;
   isTransitioning?: boolean;
   isShowDDMenu?: boolean;
+  gltfAnimationState: gltfAnimationState;
 }
 
 export interface ProjectLink {
@@ -10,4 +11,13 @@ export interface ProjectLink {
   label: string;
   link: string;
   external?: boolean;
+}
+
+export interface gltfAnimationState {
+  show: boolean;
+  loaded: boolean;
+  animation: string;
+  animationPage: string;
+  prevAnimation?: string;
+  stopAnimation?: boolean;
 }

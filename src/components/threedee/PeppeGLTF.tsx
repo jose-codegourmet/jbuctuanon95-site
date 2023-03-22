@@ -3,61 +3,53 @@ import { useGLTF } from '@react-three/drei';
 import { useThree } from '@react-three/fiber';
 import { motion } from 'framer-motion-3d';
 import React, { useRef } from 'react';
+import { DEFAULT_ANIMATION_STATE } from 'src/constants/project';
+import { defaultTransition, rotateTo } from 'src/utils/animationUtils';
 import * as THREE from 'three';
+import { degToRad } from 'three/src/math/MathUtils';
 
-const PeppeGLTF = ({ animationState = 'visible' }) => {
+const PeppeGLTF = ({ gltfAnimationState, zIndex = 1.4 }) => {
   const peppeMesh: any = useRef();
   const { scene: PeppeScene } = useGLTF('/3d/pepe/scene.gltf');
   const { width } = useThree((state) => state.viewport);
   const isDesktop = width >= 6;
-  const peppePosX = isDesktop ? -3 : -1.5;
-  const peppePosY = isDesktop ? 0.7 : -1;
-  const peppePosZ = isDesktop ? 1.5 : -1;
+  const { loaded, animation, prevAnimation, animationPage, stopAnimation } = gltfAnimationState;
+
+  const peppePosX = 0;
+  const peppePosY = -0.6;
+  const peppePosZ = zIndex;
+  const peppeRotateY = 0;
+  const peppeRotateX = -0.5;
+  const peppeRotateZ = 0;
 
   const variants = {
     hidden: {
-      x: peppePosX - 3,
-      rotateY: 10,
-    },
-    'hide-peppe': {
-      x: peppePosX - 3,
-      rotateY: 10,
+      x: peppePosX + 3,
     },
     visible: {
-      rotateY: 1,
       x: peppePosX,
+      rotateY: degToRad(0),
+      transition: defaultTransition({
+        delay: 0.15,
+      }),
     },
-    out: {
-      x: 4,
-      transition: {
-        duration: 2,
-      },
-    },
-    hover: {
-      rotateZ: 0.3,
-      transition: {
-        rotateZ: { duration: 1.5, ease: 'linear', repeat: Infinity },
-      },
-    },
+    'move-to-left': { x: peppePosX, ...rotateTo('left', 1, peppeRotateY) },
+    'move-to-right': { x: peppePosX, ...rotateTo('right', 1, peppeRotateY) },
   };
 
   return (
     <motion.primitive
       ref={peppeMesh}
       object={PeppeScene}
-      initial={animationState === 'visible' ? 'hidden' : 'visible'}
-      animate={animationState}
-      scale={[1, 1, 1]}
+      animate={(loaded && animation) || DEFAULT_ANIMATION_STATE}
+      initial={(loaded && prevAnimation) || DEFAULT_ANIMATION_STATE}
+      scale={[0.5, 0.5, 0.5]}
       variants={variants}
+      rotation={[peppeRotateX, peppeRotateY, peppeRotateZ]}
       position={[peppePosX, peppePosY, peppePosZ]}
-      transition={{
-        x: {
-          duration: 2,
-        },
-        rotateY: {
-          duration: 3,
-        },
-      }}
+      {...(variants[animation]?.transition && {
+        transition: variants[animation].transition,
+      })}
     />
   );
 };

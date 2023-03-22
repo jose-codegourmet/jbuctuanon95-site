@@ -26,15 +26,15 @@
     "@contentful/rich-text-html-renderer": "^15.15.1",
     "@contentful/rich-text-react-renderer": "^15.16.2",
     "@contentful/rich-text-types": "^15.15.1",
-    "@react-spring/three": "^9.5.5",
-    "@react-three/drei": "^9.46.3",
-    "@react-three/fiber": "^8.9.1",
+    "@react-spring/three": "^9.6.1",
+    "@react-three/drei": "^9.56.18",
+    "@react-three/fiber": "^8.11.0",
     "@reduxjs/toolkit": "^1.9.1",
     "classnames": "^2.3.2",
     "date-fns": "^2.29.3",
     "formik": "^2.2.9",
-    "framer-motion": "7.6.17",
-    "framer-motion-3d": "7.6.17",
+    "framer-motion": "9.0.1",
+    "framer-motion-3d": "9.0.1",
     "http-status-codes": "^2.2.0",
     "jwt-decode": "^3.1.2",
     "lodash-es": "^4.17.21",
@@ -55,7 +55,7 @@
     "slick-carousel": "^1.8.1",
     "smooth-scrollbar": "^8.8.1",
     "smooth-scrollbar-react": "^2.4.1",
-    "three": "^0.148.0",
+    "three": "^0.149.0",
     "yup": "^0.32.11"
   },
   "devDependencies": {
@@ -73,10 +73,10 @@
     "@trivago/prettier-plugin-sort-imports": "^3.4.0",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.11.11",
-    "@types/react": "^18.0.26",
+    "@types/react": "^18.0.27",
     "@types/react-slick": "^0.23.10",
     "@types/recharts": "^1.8.24",
-    "@types/three": "^0.148.0",
+    "@types/three": "^0.149.0",
     "@typescript-eslint/eslint-plugin": "^5.45.1",
     "@typescript-eslint/parser": "^5.45.1",
     "autoprefixer": "^10.4.13",
@@ -97,7 +97,7 @@
     "postcss": "^8.4.19",
     "prettier": "^2.8.1",
     "tailwindcss": "^3.2.4",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.5"
   },
   "msw": {
     "workerDirectory": "public"

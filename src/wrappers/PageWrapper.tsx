@@ -1,12 +1,13 @@
 import PageScrollWrapper from './PageScrollWrapper';
+import cn from 'classnames';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import type { FC, ReactElement, ReactNode } from 'react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import IndexScene from 'src/components/common/IndexScene';
 import Nav from 'src/components/common/Nav';
 import NavFullPage from 'src/components/common/NavFullPage/NavFullPage';
-import HomeScene from 'src/components/threedee/HomeScene';
 import type { RootState } from 'src/redux/reducers';
 import { updateAnimationState } from 'src/redux/reducers/project';
 import type { ProjectStateTypes } from 'src/types/project';
@@ -18,7 +19,10 @@ export interface PageWrapperProps extends ProjectStateTypes {
 
 const PageWrapper: FC<PageWrapperProps> = (props) => {
   const { children, hasNav = true } = props;
-  const { isDarkMode, showDDMenu, gltfAnimationState } = useSelector((state: RootState) => state.project);
+  const {
+    project: { isDarkMode, showDDMenu },
+    gltf: gltfAnimationState,
+  } = useSelector((state: RootState) => state);
 
   const dispatch = useDispatch();
   const { asPath } = useRouter();
@@ -48,6 +52,9 @@ const PageWrapper: FC<PageWrapperProps> = (props) => {
 
   return (
     <div
+      className={cn('project-wrapper', {
+        'project-wrapper--3d-loaded': gltfAnimationState?.loaded,
+      })}
       {...(isDarkMode && {
         'data-mode': 'dark',
       })}
@@ -55,14 +62,9 @@ const PageWrapper: FC<PageWrapperProps> = (props) => {
       <div className="main-wrapper">
         {hasNav && <Nav isDarkMode={isDarkMode} isShowDDMenu={showDDMenu} />}
         <NavFullPage show={showDDMenu} />
-        <div className="threeFiberObject--apollo-head threeFiberObject absolute top-[100px] right-0">
-          <HomeScene
-            isDarkMode={isDarkMode}
-            currPage={asPath}
-            isStopAnimating={showDDMenu}
-            gltfAnimationState={gltfAnimationState}
-          />
-        </div>
+
+        <IndexScene isDarkMode={isDarkMode} isStopAnimating={showDDMenu} gltfAnimationState={gltfAnimationState} />
+
         <PageScrollWrapper>
           <motion.div key={asPath} variants={variants} animate="in" initial="out" exit="out">
             {children}

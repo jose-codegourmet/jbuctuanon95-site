@@ -11,7 +11,7 @@ const Footer: FC<FooterProps> = (props) => {
   const router = useRouter();
 
   return (
-    <footer className="flex h-[100px] w-full items-center justify-center border dark:bg-neutral-800">
+    <footer className="flex h-auto min-h-[100px] w-full items-center justify-center border dark:bg-neutral-800">
       <a
         href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
         className="flex items-center justify-center"

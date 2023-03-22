@@ -45,3 +45,5 @@ export const WEBSITE_SOCIALS: ProjectLink[] = [
 ];
 
 export const MOBILE_BREAKPOINT = 768;
+
+export const DEFAULT_ANIMATION_STATE = 'hidden';

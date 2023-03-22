@@ -8,6 +8,15 @@ body {
 main {
 }
 
+.project-wrapper {
+    opacity: 0;
+
+    // .project-wrapper--3d-loaded
+    &--3d-loaded {
+        opacity: 1;
+    }
+}
+
 .threeFiberObject--apollo-head {
     @apply fixed top-0 left-0 z-0 h-screen w-full;
     z-index: 10;
@@ -20,6 +29,14 @@ main {
     canvas {
         pointer-events: none;
     }
+}
+
+.threeFiberObject--index-scene {
+    @apply fixed
+        top-0
+        z-30
+        h-[1000px]
+        w-[600px];
 }
 
 .main-wrapper {
